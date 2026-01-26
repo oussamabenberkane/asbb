@@ -1,0 +1,25 @@
+{
+  "id": "workout-a",
+  "titre": "Ball Handling & Passing",
+  "theme": "Jouer plus vite sans paniquer",
+  "jour": "samedi",
+  "coach": "Oussama Benberkane",
+  "objectifs": [
+    "Être à l'aise avec le ballon dans toutes les situations",
+    "Prendre des décisions rapides et propres",
+    "Passer avec intention, en mouvement"
+  ],
+  "contenu": [
+    "Travail du dribble (main forte et main faible)",
+    "Dribble libre puis défendu",
+    "Changements de rythme et de direction en protégeant le ballon",
+    "Passes en mouvement (drive & kick, passes en avance)",
+    "Pick and Roll (prise de décision >1s) → Lecture du jeu simple : quand attaquer, quand passer"
+  ],
+  "pointsCles": [
+    "Garder la tête levée",
+    "Faire confiance à la première décision",
+    "Passer pour créer un avantage, pas juste pour se débarrasser du ballon"
+  ],
+  "resultat": "Des joueurs confiants, capables de créer et partager le ballon, même sous pression."
+}

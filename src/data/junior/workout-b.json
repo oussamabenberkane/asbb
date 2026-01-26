@@ -1,0 +1,26 @@
+{
+  "id": "workout-b",
+  "titre": "Shooting & Footwork",
+  "theme": "Contrôler son corps avant de contrôler le tir",
+  "jour": "samedi",
+  "coach": "Oussama Benberkane",
+  "objectifs": [
+    "Améliorer la qualité du tir",
+    "Être équilibré et prêt avant de shooter",
+    "Enchaîner mouvement → arrêt → tir proprement"
+  ],
+  "contenu": [
+    "Placement des appuis",
+    "Arrêts (jump stop, 1-2)",
+    "Pivots et équilibre",
+    "Shooting en sortie de dribble",
+    "Shooting après réception (catch & shoot)",
+    "Tir sous légère fatigue"
+  ],
+  "pointsCles": [
+    "Les pieds avant les mains",
+    "Être stable avant de tirer",
+    "Répéter les bons gestes, même fatigué"
+  ],
+  "resultat": "Des joueurs plus constants au tir, avec une meilleure maîtrise de leur corps."
+}

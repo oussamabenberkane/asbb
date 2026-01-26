@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "name": "Amar Tizaoui",
+    "photo": "amar.jpg",
+    "role": "Coach Principal",
+    "bio": "Passionné de basketball depuis plus de 10 ans, Amar apporte son expérience et sa vision du jeu à l'académie."
+  },
+  {
+    "id": 2,
+    "name": "Kousseila Benberkane",
+    "photo": "koukou.jpg",
+    "role": "Coach Assistant",
+    "bio": "Kousseila se concentre sur le développement technique et mental des jeunes joueurs."
+  },
+  {
+    "id": 3,
+    "name": "Oussama Benberkane",
+    "photo": "ouss.jpeg",
+    "role": "Préparateur Physique",
+    "bio": "Spécialiste de la préparation physique, Oussama conçoit les programmes d'entraînement athlétique de l'académie."
+  }
+]

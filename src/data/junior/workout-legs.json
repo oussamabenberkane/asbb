@@ -1,0 +1,71 @@
+{
+  "id": "workout-legs",
+  "titre": "Explosivité & Puissance",
+  "theme": "Développer l'explosivité des jambes",
+  "jour": "dimanche",
+  "coach": "Oussama Benberkane",
+  "objectifs": [
+    "Développer l'explosivité des jambes et la capacité à produire de la force rapidement",
+    "Transfert direct vers les qualités athlétiques nécessaires au basketball : détente, premier pas, changements de rythme et puissance près du panier"
+  ],
+  "echauffement": {
+    "duree": "8–10 minutes",
+    "description": "Échauffement à rythme rapide pour activer le bas du corps et le système nerveux.",
+    "exercices": [
+      "Jogging dynamique",
+      "Montées de genoux",
+      "Talons-fesses",
+      "Pogo jumps (petits sauts rapides sur l'avant du pied)",
+      "Ouverture de hanches",
+      "Mobilité des chevilles"
+    ]
+  },
+  "exercices": [
+    {
+      "nom": "Box Jumps",
+      "series": "5×5",
+      "description": "Sauts explosifs avec intention maximale. Réinitialisation complète entre chaque répétition.",
+      "accent": "Accent sur la qualité, pas la fatigue."
+    },
+    {
+      "nom": "Speed Back Squat",
+      "series": "6×5",
+      "description": "Descente contrôlée (≈ 3 secondes), Remontée explosive",
+      "accent": "Objectif : produire de la force rapidement depuis une position stable."
+    },
+    {
+      "nom": "Romanian Deadlift",
+      "series": "4×5",
+      "description": "Montée rapide, Descente contrôlée (≈ 3 secondes)",
+      "accent": "Travail des ischios et de la chaîne postérieure, essentiels pour la vitesse et les sauts."
+    },
+    {
+      "nom": "Jumping Lunges",
+      "series": "3×12",
+      "description": "Fentes sautées avec transition explosive (6 par jambe)"
+    },
+    {
+      "nom": "Backboard Jumps avec ballon",
+      "series": "2×10 par main",
+      "description": "Sauter et toucher le panneau avec le ballon.",
+      "accent": "Transfert direct vers les situations de finition au panier."
+    },
+    {
+      "nom": "Standing Calf Jumps",
+      "series": "4×10",
+      "description": "Sauts verticaux à partir des mollets.",
+      "accent": "Amélioration de la réactivité et de l'élasticité du pied."
+    }
+  ],
+  "gainage": {
+    "exercice": "Gainage variable",
+    "series": "3×10–12",
+    "description": "Exercices adaptés selon le niveau",
+    "accent": "Objectif : stabilité du tronc pour une meilleure transmission de force."
+  },
+  "notes": [
+    "Qualité > quantité",
+    "Chaque répétition doit être explosive et maîtrisée",
+    "La récupération fait partie du travail"
+  ]
+}

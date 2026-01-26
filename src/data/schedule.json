@@ -1,0 +1,29 @@
+{
+  "junior": {
+    "samedi": {
+      "horaire": "16h30 - 18h30",
+      "type": "Fondamentaux",
+      "rotation": [
+        { "semaine": 1, "workout": "workout-a", "titre": "Ball Handling & Passing" },
+        { "semaine": 2, "workout": "workout-b", "titre": "Shooting & Footwork" },
+        { "semaine": 3, "workout": "workout-c", "titre": "Finishing & Defense" }
+      ],
+      "note": "Rotation continue avec progression de qualité et d'intensité"
+    },
+    "dimanche": {
+      "horaire": "18h30 - 20h00",
+      "type": "Préparation Physique",
+      "workout": "workout-legs",
+      "titre": "Explosivité & Puissance"
+    }
+  },
+  "cadet": {
+    "status": "coming_soon"
+  },
+  "minime": {
+    "status": "coming_soon"
+  },
+  "senior": {
+    "status": "coming_soon"
+  }
+}
