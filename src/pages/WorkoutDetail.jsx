@@ -126,10 +126,11 @@ export default function WorkoutDetail() {
             </div>
             {mode === 'home' && (
               <p className="mt-3 text-sm text-orange-600 flex items-center gap-2">
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
-                Cliquez sur un exercice pour voir le tutoriel vidéo
+                <span className="hidden sm:inline">Cliquez sur un exercice pour voir le tutoriel vidéo</span>
+                <span className="sm:hidden">Touchez un exercice pour voir le tutoriel</span>
               </p>
             )}
           </div>
@@ -196,14 +197,15 @@ export default function WorkoutDetail() {
                     onClick={hasVideo ? () => openVideoModal(ex.videoUrl, ex.videoTitle) : undefined}
                     className={`bg-gray-50 p-4 rounded-lg w-full text-left ${
                       hasVideo
-                        ? 'cursor-pointer hover:bg-gray-100 hover:shadow-md transition-all border-2 border-transparent hover:border-orange-300 group'
+                        ? 'cursor-pointer hover:bg-gray-100 hover:shadow-md transition-all border-2 border-transparent hover:border-orange-300 active:border-orange-400 active:bg-orange-50 group'
                         : ''
                     }`}
                   >
-                    <div className="flex items-start justify-between mb-2">
+                    {/* Mobile: Stack vertically, Desktop: Row layout */}
+                    <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-2">
                       <div className="flex items-center gap-3">
                         {hasVideo && (
-                          <span className="shrink-0 w-10 h-10 bg-orange-500 rounded-full flex items-center justify-center group-hover:bg-orange-600 transition-colors">
+                          <span className="shrink-0 w-10 h-10 sm:w-10 sm:h-10 bg-orange-500 rounded-full flex items-center justify-center group-hover:bg-orange-600 group-active:bg-orange-700 transition-colors">
                             <svg className="w-5 h-5 text-white ml-0.5" fill="currentColor" viewBox="0 0 24 24">
                               <path d="M8 5v14l11-7z" />
                             </svg>
@@ -211,7 +213,7 @@ export default function WorkoutDetail() {
                         )}
                         <h4 className="font-semibold text-gray-900">{ex.nom}</h4>
                       </div>
-                      <div className="flex gap-2">
+                      <div className="flex gap-2 flex-wrap">
                         <span className="bg-[#1e3a5f] text-white text-sm px-2 py-1 rounded">
                           {ex.series}
                         </span>
@@ -222,15 +224,15 @@ export default function WorkoutDetail() {
                         )}
                       </div>
                     </div>
-                    <p className={`text-gray-600 ${hasVideo ? 'pl-13' : ''}`}>{ex.description}</p>
+                    <p className={`text-gray-600 ${hasVideo ? 'sm:pl-13' : ''}`}>{ex.description}</p>
                     {ex.accent && (
-                      <p className={`text-orange-600 text-sm mt-2 italic ${hasVideo ? 'pl-13' : ''}`}>
+                      <p className={`text-orange-600 text-sm mt-2 italic ${hasVideo ? 'sm:pl-13' : ''}`}>
                         {ex.accent}
                       </p>
                     )}
                     {hasVideo && (
-                      <p className="text-sm text-[#1e3a5f] mt-2 pl-13 flex items-center gap-1 opacity-70 group-hover:opacity-100">
-                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <p className="text-sm text-[#1e3a5f] mt-3 sm:pl-13 flex items-center gap-1.5 font-medium">
+                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                         </svg>
