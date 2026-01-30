@@ -2,7 +2,7 @@
   "id": "workout-legs",
   "titre": "Explosivité & Puissance",
   "theme": "Développer l'explosivité des jambes",
-  "jour": "dimanche",
+  "jour": "samedi",
   "coach": "Oussama Benberkane",
   "objectifs": [
     "Développer l'explosivité des jambes et la capacité à produire de la force rapidement",
@@ -24,35 +24,48 @@
     {
       "nom": "Box Jumps",
       "series": "5×5",
+      "repos": "2-3 min",
       "description": "Sauts explosifs avec intention maximale. Réinitialisation complète entre chaque répétition.",
       "accent": "Accent sur la qualité, pas la fatigue."
     },
     {
       "nom": "Speed Back Squat",
       "series": "6×5",
+      "repos": "2-3 min",
       "description": "Descente contrôlée (≈ 3 secondes), Remontée explosive",
       "accent": "Objectif : produire de la force rapidement depuis une position stable."
     },
     {
       "nom": "Romanian Deadlift",
       "series": "4×5",
+      "repos": "90-120 sec",
       "description": "Montée rapide, Descente contrôlée (≈ 3 secondes)",
       "accent": "Travail des ischios et de la chaîne postérieure, essentiels pour la vitesse et les sauts."
     },
     {
       "nom": "Jumping Lunges",
       "series": "3×12",
+      "repos": "60-90 sec",
       "description": "Fentes sautées avec transition explosive (6 par jambe)"
     },
     {
-      "nom": "Backboard Jumps avec ballon",
-      "series": "2×10 par main",
-      "description": "Sauter et toucher le panneau avec le ballon.",
-      "accent": "Transfert direct vers les situations de finition au panier."
+      "nom": "Bulgarian Split Squats",
+      "series": "3×8 par jambe",
+      "repos": "90 sec",
+      "description": "Squat unilatéral avec pied arrière surélevé.",
+      "accent": "Renforcement de la stabilité et de la puissance unilatérale."
+    },
+    {
+      "nom": "Landmine Twists",
+      "series": "3×12",
+      "repos": "60-90 sec",
+      "description": "Rotations contrôlées avec barre landmine.",
+      "accent": "Travail de la puissance rotationnelle et du tronc."
     },
     {
       "nom": "Standing Calf Jumps",
       "series": "4×10",
+      "repos": "60 sec",
       "description": "Sauts verticaux à partir des mollets.",
       "accent": "Amélioration de la réactivité et de l'élasticité du pied."
     }

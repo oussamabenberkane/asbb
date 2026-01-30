@@ -7,12 +7,12 @@ import workoutLegs from '../data/junior/workout-legs.json'
 const workoutsData = {
   junior: {
     samedi: {
+      'workout-legs': workoutLegs,
+    },
+    dimanche: {
       'workout-a': workoutA,
       'workout-b': workoutB,
       'workout-c': workoutC,
-    },
-    dimanche: {
-      'workout-legs': workoutLegs,
     },
   },
 }
@@ -22,8 +22,8 @@ const levelLabels = {
 }
 
 const dayLabels = {
-  samedi: { label: 'Samedi', subtitle: 'Fondamentaux', color: 'blue' },
-  dimanche: { label: 'Dimanche', subtitle: 'Préparation Physique', color: 'green' },
+  samedi: { label: 'Samedi', subtitle: 'Préparation Physique', color: 'blue' },
+  dimanche: { label: 'Dimanche', subtitle: 'Fondamentaux', color: 'green' },
 }
 
 export default function WorkoutDetail() {
@@ -127,9 +127,16 @@ export default function WorkoutDetail() {
                 <div key={i} className="bg-gray-50 p-4 rounded-lg">
                   <div className="flex items-start justify-between mb-2">
                     <h4 className="font-semibold text-gray-900">{ex.nom}</h4>
-                    <span className="bg-[#1e3a5f] text-white text-sm px-2 py-1 rounded">
-                      {ex.series}
-                    </span>
+                    <div className="flex gap-2">
+                      <span className="bg-[#1e3a5f] text-white text-sm px-2 py-1 rounded">
+                        {ex.series}
+                      </span>
+                      {ex.repos && (
+                        <span className="bg-gray-200 text-gray-700 text-sm px-2 py-1 rounded">
+                          Repos: {ex.repos}
+                        </span>
+                      )}
+                    </div>
                   </div>
                   <p className="text-gray-600">{ex.description}</p>
                   {ex.accent && (

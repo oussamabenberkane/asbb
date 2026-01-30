@@ -1,23 +1,9 @@
 [
   {
     "id": 1,
-    "date": "2026-01-20",
-    "titre": "Exemple d'annonce: Reprise des entraînements",
-    "contenu": "Les entraînements reprennent ce samedi. Rendez-vous à 10h au gymnase.",
+    "date": "2026-01-30",
+    "titre": "Changement de planning pour les Juniors",
+    "contenu": "Les Juniors s'entraîneront désormais le samedi avec coach Oussama à Vigo's Original Gym. Les séances Fondamentaux passent au dimanche (au lieu du samedi). Les séances de travail physique restent le samedi.",
     "important": true
-  },
-  {
-    "id": 2,
-    "date": "2026-01-15",
-    "titre": "Exemple d'annonce: Nouveau planning disponible",
-    "contenu": "Le planning du mois de janvier est maintenant disponible. Consultez la page Planning pour plus de détails.",
-    "important": false
-  },
-  {
-    "id": 3,
-    "date": "2026-01-10",
-    "titre": "Exemple d'annonce: Bienvenue sur le site ASBB",
-    "contenu": "Le nouveau site de l'Académie Soummam Basketball est en ligne ! Retrouvez toutes les informations sur nos entraînements et notre équipe.",
-    "important": false
   }
 ]

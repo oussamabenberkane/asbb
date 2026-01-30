@@ -74,7 +74,7 @@ export default function LevelWorkouts() {
                       ? 'bg-blue-100 text-blue-700'
                       : 'bg-green-100 text-green-700'
                   }`}>
-                    {workout.jour === 'samedi' ? 'Samedi - Fondamentaux' : 'Dimanche - Physique'}
+                    {workout.jour === 'samedi' ? 'Samedi - Préparation Physique' : 'Dimanche - Fondamentaux'}
                   </span>
                   <h2 className="text-xl font-semibold text-gray-900">
                     {workout.titre}

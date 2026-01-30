@@ -109,16 +109,25 @@ export default function Entrainements() {
                             <h3 className="text-lg font-semibold text-gray-900">
                               {schedule[level.id].samedi.type}
                             </h3>
-                            <p className="text-sm text-gray-600 mt-1">
-                              {schedule[level.id].samedi.note}
-                            </p>
-                            <div className="flex flex-wrap gap-2 mt-3">
-                              {schedule[level.id].samedi.rotation.map((item, i) => (
-                                <span key={i} className="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded">
-                                  S{item.semaine}: {item.titre}
-                                </span>
-                              ))}
-                            </div>
+                            {schedule[level.id].samedi.note && (
+                              <p className="text-sm text-gray-600 mt-1">
+                                {schedule[level.id].samedi.note}
+                              </p>
+                            )}
+                            {schedule[level.id].samedi.titre && (
+                              <p className="text-sm text-gray-600 mt-1">
+                                {schedule[level.id].samedi.titre}
+                              </p>
+                            )}
+                            {schedule[level.id].samedi.rotation && (
+                              <div className="flex flex-wrap gap-2 mt-3">
+                                {schedule[level.id].samedi.rotation.map((item, i) => (
+                                  <span key={i} className="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded">
+                                    S{item.semaine}: {item.titre}
+                                  </span>
+                                ))}
+                              </div>
+                            )}
                           </div>
                           <svg
                             className="w-5 h-5 text-blue-400 ml-4 mt-1"
@@ -156,9 +165,25 @@ export default function Entrainements() {
                             <h3 className="text-lg font-semibold text-gray-900">
                               {schedule[level.id].dimanche.type}
                             </h3>
-                            <p className="text-sm text-gray-600 mt-1">
-                              {schedule[level.id].dimanche.titre}
-                            </p>
+                            {schedule[level.id].dimanche.titre && (
+                              <p className="text-sm text-gray-600 mt-1">
+                                {schedule[level.id].dimanche.titre}
+                              </p>
+                            )}
+                            {schedule[level.id].dimanche.note && (
+                              <p className="text-sm text-gray-600 mt-1">
+                                {schedule[level.id].dimanche.note}
+                              </p>
+                            )}
+                            {schedule[level.id].dimanche.rotation && (
+                              <div className="flex flex-wrap gap-2 mt-3">
+                                {schedule[level.id].dimanche.rotation.map((item, i) => (
+                                  <span key={i} className="text-xs bg-green-100 text-green-700 px-2 py-1 rounded">
+                                    S{item.semaine}: {item.titre}
+                                  </span>
+                                ))}
+                              </div>
+                            )}
                           </div>
                           <svg
                             className="w-5 h-5 text-green-400 ml-4 mt-1"
