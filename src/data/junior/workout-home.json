@@ -1,0 +1,100 @@
+{
+  "id": "workout-home",
+  "titre": "Explosivité & Puissance - Version Maison",
+  "theme": "Entraînement à domicile sans équipement",
+  "jour": "samedi",
+  "coach": "Oussama Benberkane",
+  "objectifs": [
+    "Développer l'explosivité des jambes avec des exercices au poids du corps",
+    "Transfert direct vers les qualités athlétiques du basketball : détente, premier pas, changements de rythme"
+  ],
+  "echauffement": {
+    "duree": "8–10 minutes",
+    "description": "Échauffement à rythme rapide pour activer le bas du corps et le système nerveux.",
+    "exercices": [
+      "Jogging sur place",
+      "Montées de genoux",
+      "Talons-fesses",
+      "Pogo jumps (petits sauts rapides sur l'avant du pied)",
+      "Cercles de hanches",
+      "Rotations des chevilles"
+    ]
+  },
+  "exercices": [
+    {
+      "nom": "Squat Jumps",
+      "series": "4×8",
+      "repos": "90 sec",
+      "description": "Squat complet suivi d'un saut explosif maximal. Réinitialisation complète entre chaque répétition.",
+      "accent": "Atterrir en douceur et enchaîner immédiatement. Qualité > quantité.",
+      "videoUrl": "https://www.youtube.com/embed/A-cFYWvaHr0",
+      "videoTitle": "How to Do a Squat Jump | Plyometric Exercises"
+    },
+    {
+      "nom": "Tempo Squats (Poids du corps)",
+      "series": "5×8",
+      "repos": "90 sec",
+      "description": "Descente lente (3-4 secondes), pause en bas (1 seconde), remontée explosive.",
+      "accent": "Contrôle total de la descente, explosion à la remontée.",
+      "videoUrl": "https://www.youtube.com/embed/YaXPRqUwItQ",
+      "videoTitle": "How to Do a Squat | Gym Workout"
+    },
+    {
+      "nom": "Single-Leg Romanian Deadlift",
+      "series": "3×8 par jambe",
+      "repos": "60 sec",
+      "description": "Équilibre sur une jambe, descendre le buste tout en levant la jambe arrière. Garder le dos droit.",
+      "accent": "Sentir l'étirement dans les ischios. Contrôle de la stabilité.",
+      "videoUrl": "https://www.youtube.com/embed/GoKjrvJi-Iw?si=QWuSe6AxrfzH0ibj",
+      "videoTitle": "The Right Way to Do Single-Leg RDLs | Testosterone Nation"
+    },
+    {
+      "nom": "Split Jumps (Fentes Sautées)",
+      "series": "3×12",
+      "repos": "60-90 sec",
+      "description": "Position de fente, sauter et alterner les jambes en l'air. Atterrir en douceur.",
+      "accent": "Explosivité maximale, garder le torse droit.",
+      "videoUrl": "https://www.youtube.com/embed/nN-fkSOL1ds?si=DAJ4L1KDXqHlalP6",
+      "videoTitle": "How to Do Split Jumps | JeremyScottFitness"
+    },
+    {
+      "nom": "Bulgarian Split Squats",
+      "series": "3×10 par jambe",
+      "repos": "60 sec",
+      "description": "Pied arrière sur une chaise ou un canapé. Descendre jusqu'à ce que le genou arrière frôle le sol.",
+      "accent": "Garder le torse droit, pousser à travers le talon avant.",
+      "videoUrl": "https://www.youtube.com/embed/2C-uNgKwPLE",
+      "videoTitle": "How to Do Bulgarian Split Squats"
+    },
+    {
+      "nom": "Mountain Climbers",
+      "series": "3×30 sec",
+      "repos": "45 sec",
+      "description": "Position de planche, ramener les genoux alternativement vers la poitrine à rythme rapide.",
+      "accent": "Garder les hanches basses, engagement du tronc constant.",
+      "videoUrl": "https://www.youtube.com/embed/nmwgirgXLYM",
+      "videoTitle": "How to Do Mountain Climbers | Boot Camp Workout"
+    },
+    {
+      "nom": "Pogo Jumps",
+      "series": "4×15",
+      "repos": "45 sec",
+      "description": "Petits sauts rapides et rebondissants sur l'avant du pied. Minimiser le contact au sol.",
+      "accent": "Réactivité maximale, rebond élastique comme un ressort.",
+      "videoUrl": "https://www.youtube.com/embed/dMnECxl6dsY?si=mWA05RHHGRbePX4d",
+      "videoTitle": "Pogo Jumps | Rodu Training"
+    }
+  ],
+  "gainage": {
+    "exercice": "Planche dynamique",
+    "series": "3×30 sec",
+    "description": "Alterner entre planche haute et planche basse (coudes) à rythme contrôlé.",
+    "accent": "Objectif : stabilité du tronc pour une meilleure transmission de force."
+  },
+  "notes": [
+    "Qualité > quantité - Chaque répétition doit être explosive",
+    "Utiliser une chaise ou un canapé stable pour les Bulgarian Split Squats",
+    "Récupération complète entre les séries pour maintenir l'explosivité",
+    "Cliquez sur chaque exercice pour voir la vidéo tutoriel"
+  ]
+}
