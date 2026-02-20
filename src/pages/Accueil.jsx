@@ -64,24 +64,25 @@ export default function Accueil() {
                 </div>
 
                 {announcement.image ? (
-                  /* Layout with image — side by side on desktop */
-                  <div className="grid md:grid-cols-2 gap-8 items-start">
-                    {/* Image */}
-                    <div className="relative group">
-                      <div className="absolute -inset-1 bg-gradient-to-br from-orange-500/20 to-orange-600/10 rounded-2xl blur-sm" />
+                  /* Layout with image — matching announcements page: 2/5 image, 3/5 content */
+                  <div className="bg-white/5 rounded-2xl overflow-hidden border border-white/10 backdrop-blur-sm md:grid md:grid-cols-5">
+                    {/* Image — left */}
+                    <div className="relative md:col-span-2">
                       <img
                         src={announcement.image}
                         alt={announcement.titre}
-                        className="relative w-full rounded-2xl shadow-2xl shadow-black/30"
+                        className="w-full h-full object-contain md:object-cover"
                       />
+                      <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-[#152d4a] to-transparent md:hidden" />
+                      <div className="absolute top-0 right-0 bottom-0 w-8 bg-gradient-to-l from-[#152d4a] to-transparent hidden md:block" />
                     </div>
 
-                    {/* Content */}
-                    <div className="flex flex-col justify-center">
-                      <h3 className="text-2xl md:text-3xl font-bold text-white mb-4 leading-tight">
+                    {/* Content — right */}
+                    <div className="md:col-span-3 p-6 md:p-8 flex flex-col justify-center -mt-8 relative z-10 md:mt-0">
+                      <h3 className="text-2xl md:text-3xl font-bold text-white mb-5 leading-tight">
                         {announcement.titre}
                       </h3>
-                      <div className="text-gray-300 whitespace-pre-line text-[15px] leading-relaxed bg-white/5 rounded-xl p-5 border border-white/10 backdrop-blur-sm">
+                      <div className="text-gray-300 whitespace-pre-line text-[15px] leading-relaxed bg-white/5 rounded-xl p-5 border border-white/10">
                         {announcement.contenu}
                       </div>
                       <Link
