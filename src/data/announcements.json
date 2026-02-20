@@ -1,9 +1,17 @@
 [
   {
+    "id": 2,
+    "date": "2026-02-20",
+    "titre": "🌙 Horaires spéciaux – Mois de Ramadan",
+    "contenu": "👧 Filles\n📅 Vendredi : 14h30 – 15h30\n📅 Samedi : 14h30 – 15h30\n📅 Jeudi : 16h00 – 17h00\n\n🏀 Petite Catégorie\n📅 Vendredi : 15h30 – 16h30\n📅 Samedi : 15h30 – 16h30\n📅 Mardi (Cadets & Minimes) : 16h00 – 17h00\n\n💪 Juniors / Seniors\n📅 Vendredi : 16h30 – 18h00\n📅 Samedi : 16h30 – 18h00\n📅 Mardi : 17h00 – 18h00",
+    "important": true,
+    "image": "/announcements/ramadan.jpeg"
+  },
+  {
     "id": 1,
     "date": "2026-01-30",
     "titre": "Changement de planning pour les Juniors",
     "contenu": "Les Juniors s'entraîneront désormais le samedi avec coach Oussama à Vigo's Original Gym. Les séances Fondamentaux passent au dimanche (au lieu du samedi). Les séances de travail physique restent le samedi.",
-    "important": true
+    "important": false
   }
 ]

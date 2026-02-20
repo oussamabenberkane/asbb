@@ -3,7 +3,7 @@ import logo from '../assets/logo.jpg'
 import announcements from '../data/announcements.json'
 
 export default function Accueil() {
-  const latestAnnouncement = announcements.find(a => a.important) || announcements[0]
+  const importantAnnouncements = announcements.filter(a => a.important)
 
   return (
     <div>
@@ -41,27 +41,85 @@ export default function Accueil() {
         </div>
       </section>
 
-      {/* Latest Announcement */}
-      {latestAnnouncement && (
-        <section className="py-8 px-4 bg-orange-50">
-          <div className="max-w-4xl mx-auto">
-            <div className="bg-white rounded-lg shadow-md p-6 border-l-4 border-orange-500">
-              <div className="flex items-start gap-4">
-                <div className="bg-orange-100 rounded-full p-2">
-                  <svg className="w-6 h-6 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z" />
-                  </svg>
+      {/* Important Announcements */}
+      {importantAnnouncements.length > 0 && (
+        <section className="relative overflow-hidden bg-gradient-to-b from-[#0f1d2f] to-[#1e3a5f]">
+          {/* Decorative background elements */}
+          <div className="absolute inset-0 opacity-[0.04]" style={{
+            backgroundImage: 'radial-gradient(circle at 20% 50%, #f97316 1px, transparent 1px), radial-gradient(circle at 80% 20%, #f97316 1px, transparent 1px)',
+            backgroundSize: '60px 60px, 80px 80px'
+          }} />
+          <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-orange-500 to-transparent" />
+
+          <div className="relative max-w-5xl mx-auto px-4 py-12 md:py-16">
+            {importantAnnouncements.map((announcement) => (
+              <div key={announcement.id}>
+                {/* Section label */}
+                <div className="flex items-center gap-3 mb-8">
+                  <div className="w-2 h-2 rounded-full bg-orange-500 animate-pulse" />
+                  <span className="text-orange-400 text-sm font-semibold tracking-widest uppercase">
+                    Annonce importante
+                  </span>
+                  <div className="flex-1 h-px bg-gradient-to-r from-orange-500/30 to-transparent" />
                 </div>
-                <div>
-                  <h3 className="font-semibold text-gray-900">{latestAnnouncement.titre}</h3>
-                  <p className="text-gray-600 mt-1">{latestAnnouncement.contenu}</p>
-                  <Link to="/annonces" className="text-orange-500 hover:text-orange-600 text-sm mt-2 inline-block">
-                    Voir toutes les annonces &rarr;
-                  </Link>
-                </div>
+
+                {announcement.image ? (
+                  /* Layout with image — side by side on desktop */
+                  <div className="grid md:grid-cols-2 gap-8 items-start">
+                    {/* Image */}
+                    <div className="relative group">
+                      <div className="absolute -inset-1 bg-gradient-to-br from-orange-500/20 to-orange-600/10 rounded-2xl blur-sm" />
+                      <img
+                        src={announcement.image}
+                        alt={announcement.titre}
+                        className="relative w-full rounded-2xl shadow-2xl shadow-black/30"
+                      />
+                    </div>
+
+                    {/* Content */}
+                    <div className="flex flex-col justify-center">
+                      <h3 className="text-2xl md:text-3xl font-bold text-white mb-4 leading-tight">
+                        {announcement.titre}
+                      </h3>
+                      <div className="text-gray-300 whitespace-pre-line text-[15px] leading-relaxed bg-white/5 rounded-xl p-5 border border-white/10 backdrop-blur-sm">
+                        {announcement.contenu}
+                      </div>
+                      <Link
+                        to="/annonces"
+                        className="mt-6 inline-flex items-center gap-2 text-orange-400 hover:text-orange-300 text-sm font-medium transition-colors group"
+                      >
+                        Voir toutes les annonces
+                        <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                        </svg>
+                      </Link>
+                    </div>
+                  </div>
+                ) : (
+                  /* Layout without image — centered */
+                  <div className="max-w-2xl">
+                    <h3 className="text-2xl md:text-3xl font-bold text-white mb-4 leading-tight">
+                      {announcement.titre}
+                    </h3>
+                    <p className="text-gray-300 whitespace-pre-line text-[15px] leading-relaxed">
+                      {announcement.contenu}
+                    </p>
+                    <Link
+                      to="/annonces"
+                      className="mt-6 inline-flex items-center gap-2 text-orange-400 hover:text-orange-300 text-sm font-medium transition-colors group"
+                    >
+                      Voir toutes les annonces
+                      <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                      </svg>
+                    </Link>
+                  </div>
+                )}
               </div>
-            </div>
+            ))}
           </div>
+
+          <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-orange-500/50 to-transparent" />
         </section>
       )}
 
