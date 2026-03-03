@@ -1,6 +1,23 @@
+import { useState } from 'react'
 import coaches from '../data/coaches.json'
 
 export default function Infos() {
+  const [showModal, setShowModal] = useState(false)
+  const [password, setPassword] = useState('')
+  const [error, setError] = useState(false)
+
+  function handleSubmit(e) {
+    e.preventDefault()
+    if (password === 'akbou.asbb') {
+      setShowModal(false)
+      setPassword('')
+      setError(false)
+      window.open('https://docs.google.com/spreadsheets/d/1NTxKekkHx4qpEPDBRAFiRxC0FqTfCItvbgIkPJH7o9w/edit?usp=sharing', '_blank')
+    } else {
+      setError(true)
+    }
+  }
+
   return (
     <div className="py-8 px-4">
       <div className="max-w-4xl mx-auto">
@@ -168,7 +185,66 @@ export default function Infos() {
             </a>
           </div>
         </section>
+
+        {/* Espace Staff */}
+        <section className="mt-8 pt-6 border-t border-gray-200">
+          <button
+            onClick={() => setShowModal(true)}
+            className="flex items-center gap-2 text-sm text-gray-400 hover:text-gray-600 transition-colors mx-auto"
+          >
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+            </svg>
+            Espace Staff
+          </button>
+        </section>
       </div>
+
+      {/* Password Modal */}
+      {showModal && (
+        <div
+          className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 px-4"
+          onClick={() => { setShowModal(false); setPassword(''); setError(false) }}
+        >
+          <div
+            className="bg-white rounded-xl shadow-xl p-6 w-full max-w-sm"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <h3 className="text-lg font-bold text-gray-900 mb-1">Accès Staff</h3>
+            <p className="text-sm text-gray-500 mb-4">Entrez le mot de passe pour accéder à la liste.</p>
+            <form onSubmit={handleSubmit}>
+              <input
+                type="password"
+                value={password}
+                onChange={(e) => { setPassword(e.target.value); setError(false) }}
+                placeholder="Mot de passe"
+                autoFocus
+                className={`w-full px-4 py-2.5 border rounded-lg text-sm outline-none transition-colors ${
+                  error ? 'border-red-400 bg-red-50' : 'border-gray-300 focus:border-[#1e3a5f]'
+                }`}
+              />
+              {error && (
+                <p className="text-red-500 text-xs mt-1.5">Mot de passe incorrect.</p>
+              )}
+              <div className="flex gap-3 mt-4">
+                <button
+                  type="button"
+                  onClick={() => { setShowModal(false); setPassword(''); setError(false) }}
+                  className="flex-1 px-4 py-2.5 text-sm text-gray-600 bg-gray-100 rounded-lg hover:bg-gray-200 transition-colors"
+                >
+                  Annuler
+                </button>
+                <button
+                  type="submit"
+                  className="flex-1 px-4 py-2.5 text-sm text-white bg-[#1e3a5f] rounded-lg hover:bg-[#2d5a87] transition-colors"
+                >
+                  Accéder
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
     </div>
   )
 }
