@@ -11,6 +11,108 @@ body {
   @apply bg-gray-50 text-gray-900 antialiased;
 }
 
+/* ── Responsive Tournoi Page ── */
+.tournoi-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: linear-gradient(135deg, #1e3a5f 0%, #2d5a87 100%);
+  color: white;
+  padding: 14px 24px;
+  font-family: 'Oswald', sans-serif;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.tournoi-card-actions {
+  display: flex;
+  gap: 6px;
+}
+
+.tournoi-page-wrapper {
+  width: 281mm;
+  margin: 0 auto;
+  position: relative;
+}
+
+@media (max-width: 1140px) {
+  .tournoi-page-wrapper {
+    width: 100%;
+    /* Scale the fixed-size print page to fit the container */
+  }
+
+  .tournoi-page-wrapper .print-page {
+    transform-origin: top left;
+  }
+}
+
+@media (max-width: 768px) {
+  .tournoi-header {
+    padding: 10px 14px;
+  }
+
+  .tournoi-header-title {
+    font-size: 11pt !important;
+    letter-spacing: 1px !important;
+  }
+
+  .tournoi-header-subtitle {
+    font-size: 7pt !important;
+  }
+
+  .tournoi-card-actions {
+    gap: 4px;
+    flex-wrap: wrap;
+  }
+
+  .tournoi-card-actions .action-btn span {
+    display: none;
+  }
+
+  .tournoi-card-actions .action-btn {
+    padding: 6px 8px !important;
+  }
+
+  .tournoi-card-label {
+    font-size: 8pt !important;
+  }
+
+  .tournoi-content {
+    padding: 16px 12px 32px !important;
+    gap: 24px !important;
+  }
+
+  .tournoi-card-header {
+    flex-direction: column;
+    align-items: flex-start !important;
+    gap: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .tournoi-header {
+    padding: 8px 10px;
+  }
+
+  .tournoi-header-logo {
+    width: 28px !important;
+    height: 28px !important;
+  }
+
+  .tournoi-header-title {
+    font-size: 9pt !important;
+  }
+
+  .tournoi-print-all-btn {
+    padding: 6px 12px !important;
+    font-size: 8pt !important;
+  }
+
+  .tournoi-content {
+    padding: 12px 8px 24px !important;
+    gap: 20px !important;
+  }
+}
+
 /* ── Print Styles ── */
 @media print {
   @page {

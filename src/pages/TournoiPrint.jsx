@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react'
+import { useState, useCallback, useEffect, useRef } from 'react'
 import logo from '../assets/logo.jpg'
 
 const NAVY = '#1e3a5f'
@@ -119,6 +119,7 @@ function ActionButton({ icon, label, onClick, href, color = NAVY }) {
   return (
     <Tag
       {...extraProps}
+      className="action-btn"
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       title={label}
@@ -479,7 +480,8 @@ function FullscreenViewer({ page, onClose }) {
       <div
         onClick={(e) => e.stopPropagation()}
         style={{
-          width: '90vw', maxWidth: '1200px',
+          width: '95vw', maxWidth: '1200px',
+          maxHeight: '90vh',
           aspectRatio: '297 / 210',
           boxShadow: '0 20px 60px rgba(0,0,0,0.5)',
           borderRadius: '4px', overflow: 'hidden',
@@ -510,6 +512,53 @@ function FullscreenViewer({ page, onClose }) {
 /* ═══════════════════════════════════════
    MAIN PAGE
    ═══════════════════════════════════════ */
+/* ─── Responsive page scaler ─── */
+function ScaledPage({ children }) {
+  const containerRef = useRef(null)
+  const [scale, setScale] = useState(1)
+
+  useEffect(() => {
+    const container = containerRef.current
+    if (!container) return
+
+    const PAGE_WIDTH_PX = 281 * 3.7795275591 // 281mm in px
+
+    const observer = new ResizeObserver(([entry]) => {
+      const availableWidth = entry.contentRect.width
+      const newScale = Math.min(1, availableWidth / PAGE_WIDTH_PX)
+      setScale(newScale)
+    })
+
+    observer.observe(container)
+    return () => observer.disconnect()
+  }, [])
+
+  return (
+    <div ref={containerRef} className="tournoi-page-wrapper">
+      <div style={{
+        height: scale < 1 ? `${194 * scale * 3.7795275591}px` : undefined,
+        overflow: 'hidden',
+      }}>
+        <div
+          className="print-page"
+          style={{
+            width: '281mm',
+            height: '194mm',
+            background: 'white',
+            boxShadow: '0 2px 16px rgba(0,0,0,0.1)',
+            overflow: 'hidden',
+            borderRadius: scale < 1 ? `${4 / scale}px` : '4px',
+            transform: scale < 1 ? `scale(${scale})` : undefined,
+            transformOrigin: 'top left',
+          }}
+        >
+          {children}
+        </div>
+      </div>
+    </div>
+  )
+}
+
 export default function TournoiPrint() {
   const [hoveredBtn, setHoveredBtn] = useState(null)
   const [viewerPage, setViewerPage] = useState(null)
@@ -546,30 +595,25 @@ export default function TournoiPrint() {
     <div style={{ background: '#E8ECF0', minHeight: '100vh' }}>
       <FullscreenViewer page={viewerPage} onClose={() => setViewerPage(null)} />
 
-      <div className="no-print" style={{
-        position: 'sticky', top: 0, zIndex: 100,
-        background: `linear-gradient(135deg, ${NAVY} 0%, ${NAVY_LIGHT} 100%)`,
-        color: 'white', padding: '14px 24px',
-        fontFamily: "'Oswald', sans-serif",
-        boxShadow: '0 4px 20px rgba(0,0,0,0.2)',
-      }}>
+      <div className="no-print tournoi-header">
         <div style={{
           maxWidth: '1100px', margin: '0 auto',
           display: 'flex', alignItems: 'center', justifyContent: 'space-between',
           flexWrap: 'wrap', gap: '12px',
         }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-            <img src={logo} alt="ASBB" style={{ width: 36, height: 36, borderRadius: '50%' }} />
-            <div>
-              <div style={{ fontSize: '14pt', fontWeight: 600, letterSpacing: '2px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '12px', minWidth: 0 }}>
+            <img className="tournoi-header-logo" src={logo} alt="ASBB" style={{ width: 36, height: 36, borderRadius: '50%', flexShrink: 0 }} />
+            <div style={{ minWidth: 0 }}>
+              <div className="tournoi-header-title" style={{ fontSize: '14pt', fontWeight: 600, letterSpacing: '2px' }}>
                 DOCUMENTS DU TOURNOI
               </div>
-              <div style={{ fontSize: '8pt', opacity: 0.7, letterSpacing: '1px' }}>
+              <div className="tournoi-header-subtitle" style={{ fontSize: '8pt', opacity: 0.7, letterSpacing: '1px' }}>
                 {TOURNAMENT.toUpperCase()} — {pages.length} PAGES
               </div>
             </div>
           </div>
           <button
+            className="tournoi-print-all-btn"
             onClick={handlePrintAll}
             onMouseEnter={() => setHoveredBtn('all')}
             onMouseLeave={() => setHoveredBtn(null)}
@@ -586,18 +630,18 @@ export default function TournoiPrint() {
         </div>
       </div>
 
-      <div style={{
+      <div className="tournoi-content" style={{
         maxWidth: '1100px', margin: '0 auto',
         padding: '24px 24px 40px',
         display: 'flex', flexDirection: 'column', gap: '32px',
       }}>
         {pages.map((page, i) => (
           <div key={page.id}>
-            <div className="no-print" style={{
+            <div className="no-print tournoi-card-header" style={{
               display: 'flex', alignItems: 'center', justifyContent: 'space-between',
               marginBottom: '8px', padding: '0 4px',
             }}>
-              <div style={{
+              <div className="tournoi-card-label" style={{
                 fontFamily: "'Oswald', sans-serif",
                 fontSize: '10pt', fontWeight: 600, color: NAVY,
                 letterSpacing: '1px', textTransform: 'uppercase',
@@ -607,12 +651,12 @@ export default function TournoiPrint() {
                   background: NAVY, color: 'white',
                   width: '22px', height: '22px', borderRadius: '4px',
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  fontSize: '8pt', fontWeight: 700,
+                  fontSize: '8pt', fontWeight: 700, flexShrink: 0,
                 }}>{i + 1}</span>
                 {page.label}
               </div>
 
-              <div style={{ display: 'flex', gap: '6px' }}>
+              <div className="tournoi-card-actions">
                 <ActionButton
                   icon={<IconView />}
                   label="Voir"
@@ -632,17 +676,9 @@ export default function TournoiPrint() {
               </div>
             </div>
 
-            <div
-              className="print-page"
-              style={{
-                width: '281mm', height: '194mm',
-                background: 'white', margin: '0 auto',
-                boxShadow: '0 2px 16px rgba(0,0,0,0.1)',
-                overflow: 'hidden', borderRadius: '4px',
-              }}
-            >
+            <ScaledPage>
               {page.component}
-            </div>
+            </ScaledPage>
           </div>
         ))}
       </div>
