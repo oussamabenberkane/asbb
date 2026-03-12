@@ -466,7 +466,28 @@ function Certificate({ title, subtitle, description, accentColor, label }) {
    FULLSCREEN VIEWER
    ═══════════════════════════════════════ */
 function FullscreenViewer({ page, onClose }) {
+  const containerRef = useRef(null)
+  const [scale, setScale] = useState(1)
+
+  useEffect(() => {
+    if (!page) return
+    const update = () => {
+      const PAGE_W = 297 * 3.7795275591
+      const PAGE_H = 210 * 3.7795275591
+      const vw = window.innerWidth * 0.92
+      const vh = window.innerHeight * 0.88
+      setScale(Math.min(1, vw / PAGE_W, vh / PAGE_H))
+    }
+    update()
+    window.addEventListener('resize', update)
+    return () => window.removeEventListener('resize', update)
+  }, [page])
+
   if (!page) return null
+
+  const scaledW = 297 * 3.7795275591 * scale
+  const scaledH = 210 * 3.7795275591 * scale
+
   return (
     <div
       onClick={onClose}
@@ -479,25 +500,29 @@ function FullscreenViewer({ page, onClose }) {
     >
       <div
         onClick={(e) => e.stopPropagation()}
+        ref={containerRef}
         style={{
-          width: '95vw', maxWidth: '1200px',
-          maxHeight: '90vh',
-          aspectRatio: '297 / 210',
+          width: `${scaledW}px`,
+          height: `${scaledH}px`,
           boxShadow: '0 20px 60px rgba(0,0,0,0.5)',
           borderRadius: '4px', overflow: 'hidden',
           cursor: 'default', position: 'relative',
         }}
       >
-        <div style={{ position: 'absolute', inset: 0, overflow: 'hidden' }}>
+        <div style={{
+          width: '297mm', height: '210mm',
+          transform: scale < 1 ? `scale(${scale})` : undefined,
+          transformOrigin: 'top left',
+        }}>
           {page.component}
         </div>
         <button
           onClick={(e) => { e.stopPropagation(); onClose() }}
           style={{
-            position: 'absolute', top: '12px', right: '12px', zIndex: 10000,
-            width: '36px', height: '36px', borderRadius: '50%',
+            position: 'absolute', top: '8px', right: '8px', zIndex: 10000,
+            width: '32px', height: '32px', borderRadius: '50%',
             background: 'rgba(0,0,0,0.7)', color: 'white',
-            border: '2px solid rgba(255,255,255,0.3)', fontSize: '18px', cursor: 'pointer',
+            border: '2px solid rgba(255,255,255,0.3)', fontSize: '16px', cursor: 'pointer',
             display: 'flex', alignItems: 'center', justifyContent: 'center',
             transition: 'background 0.2s',
           }}
@@ -560,7 +585,6 @@ function ScaledPage({ children }) {
 }
 
 export default function TournoiPrint() {
-  const [hoveredBtn, setHoveredBtn] = useState(null)
   const [viewerPage, setViewerPage] = useState(null)
 
   const pages = [
@@ -577,8 +601,6 @@ export default function TournoiPrint() {
       pdfFile: c.pdfFile,
     })),
   ]
-
-  const handlePrintAll = () => window.print()
 
   const handlePrintSingle = useCallback((pageIndex) => {
     const allPages = document.querySelectorAll('.print-page')
@@ -612,21 +634,6 @@ export default function TournoiPrint() {
               </div>
             </div>
           </div>
-          <button
-            className="tournoi-print-all-btn"
-            onClick={handlePrintAll}
-            onMouseEnter={() => setHoveredBtn('all')}
-            onMouseLeave={() => setHoveredBtn(null)}
-            style={{
-              background: hoveredBtn === 'all' ? ORANGE : 'white',
-              color: hoveredBtn === 'all' ? 'white' : NAVY,
-              border: 'none', padding: '8px 20px',
-              fontFamily: "'Oswald', sans-serif",
-              fontSize: '10pt', fontWeight: 600, letterSpacing: '1px',
-              cursor: 'pointer', borderRadius: '3px', transition: 'all 0.2s',
-              display: 'flex', alignItems: 'center', gap: '8px',
-            }}
-          ><IconPrint /> TOUT IMPRIMER</button>
         </div>
       </div>
 
