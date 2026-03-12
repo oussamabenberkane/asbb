@@ -6,6 +6,7 @@ import LevelWorkouts from './pages/LevelWorkouts'
 import WorkoutDetail from './pages/WorkoutDetail'
 import Infos from './pages/Infos'
 import Annonces from './pages/Annonces'
+import TournoiPrint from './pages/TournoiPrint'
 
 export default function App() {
   return (
@@ -18,6 +19,7 @@ export default function App() {
         <Route path="infos" element={<Infos />} />
         <Route path="annonces" element={<Annonces />} />
       </Route>
+      <Route path="tournoi" element={<TournoiPrint />} />
     </Routes>
   )
 }

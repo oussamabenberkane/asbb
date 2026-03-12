@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fiche de Statistiques — ASBB Tournoi Ramadan 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+<style>
+  @page { size: A4 landscape; margin: 0; }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    width: 297mm; height: 210mm; margin: 0; padding: 0; overflow: hidden;
+    -webkit-print-color-adjust: exact; print-color-adjust: exact;
+    font-family: 'Oswald', sans-serif; color: #1e3a5f; background: #ffffff;
+  }
+  .page {
+    position: relative; width: 297mm; height: 210mm;
+    display: flex; flex-direction: column;
+  }
+
+  /* ── HEADER ── */
+  .header {
+    background: linear-gradient(135deg, #1e3a5f 0%, #2d5a87 100%);
+    color: #fff; display: flex; align-items: center; justify-content: space-between;
+    padding: 5mm 8mm 4.5mm 8mm; position: relative; flex-shrink: 0;
+  }
+  .header::after {
+    content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 3px;
+    background: linear-gradient(90deg, #f97316, #fbbf24, #f97316);
+  }
+  .header-left { display: flex; align-items: center; gap: 5mm; }
+  .header-logo {
+    width: 48px; height: 48px; border-radius: 50%;
+    border: 2px solid rgba(255,255,255,0.85); object-fit: cover; flex-shrink: 0;
+  }
+  .header-text { display: flex; flex-direction: column; gap: 1px; }
+  .header-title {
+    font-size: 18pt; font-weight: 700; letter-spacing: 2.5px;
+    line-height: 1.1; text-transform: uppercase;
+  }
+  .header-subtitle {
+    font-size: 9pt; font-weight: 400; opacity: 0.75;
+    letter-spacing: 3px; text-transform: uppercase;
+  }
+  .header-icon {
+    width: 42px; height: 42px; border-radius: 50%;
+    border: 2px solid rgba(255,255,255,0.25); display: flex;
+    align-items: center; justify-content: center; font-size: 20px;
+    flex-shrink: 0; background: rgba(255,255,255,0.06);
+  }
+
+  /* ── MATCH INFO ── */
+  .match-info {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 2mm 10mm; padding: 4mm 8mm 3mm 8mm; flex-shrink: 0;
+  }
+  .match-field { display: flex; align-items: baseline; gap: 2mm; }
+  .match-label {
+    font-size: 8.5pt; font-weight: 600; text-transform: uppercase;
+    letter-spacing: 1.2px; color: #1e3a5f; white-space: nowrap;
+  }
+  .match-line {
+    flex: 1; border-bottom: 1.5px solid #c8d5e2; height: 1em; min-width: 30mm;
+  }
+
+  /* ── STATS TABLE ── */
+  .table-wrapper { padding: 2mm 8mm 0 8mm; flex: 1; display: flex; flex-direction: column; }
+  .stats-table { width: 100%; border-collapse: collapse; table-layout: fixed; }
+  .stats-table colgroup .col-num { width: 10mm; }
+  .stats-table colgroup .col-player { width: 58mm; }
+  .stats-table colgroup .col-stat { width: 40mm; }
+  .stats-table thead th {
+    background: #1e3a5f; color: #fff; font-size: 8.5pt; font-weight: 600;
+    letter-spacing: 1.8px; text-transform: uppercase; text-align: center;
+    padding: 2.2mm 1mm; border: none;
+  }
+  .stats-table thead th:first-child { border-radius: 3px 0 0 0; }
+  .stats-table thead th:last-child { border-radius: 0 3px 0 0; }
+  .stats-table tbody td {
+    text-align: center; font-size: 9pt; font-weight: 400; color: #1e3a5f;
+    height: 9.8mm; padding: 0 1mm;
+    border-left: 1px solid #e2e8f0; border-bottom: 1px solid #e2e8f0;
+  }
+  .stats-table tbody td:first-child {
+    font-weight: 600; font-size: 8.5pt; color: #2d5a87; border-left: 1px solid #e2e8f0;
+  }
+  .stats-table tbody td:last-child { border-right: 1px solid #e2e8f0; }
+  .stats-table tbody tr:nth-child(odd) td { background: #ffffff; }
+  .stats-table tbody tr:nth-child(even) td { background: #F4F7FA; }
+  .stats-table tbody td.player-cell { text-align: left; padding-left: 3mm; }
+
+  /* ── TOTALS ── */
+  .stats-table tfoot td {
+    text-align: center; font-size: 9pt; font-weight: 600; color: #1e3a5f;
+    height: 10mm; padding: 0 1mm; border-top: 2px solid #1e3a5f;
+    border-left: 1px solid #e2e8f0; border-bottom: 1px solid #e2e8f0; background: #fff;
+  }
+  .stats-table tfoot td:first-child { border-left: 1px solid #e2e8f0; }
+  .stats-table tfoot td:last-child { border-right: 1px solid #e2e8f0; }
+  .stats-table tfoot td.total-label {
+    text-align: left; padding-left: 3mm; font-size: 8.5pt; font-weight: 700;
+    letter-spacing: 1.5px; text-transform: uppercase;
+  }
+
+  /* ── FOOTER ── */
+  .footer {
+    padding: 2mm 8mm 3mm 8mm; display: flex; align-items: baseline;
+    justify-content: space-between; flex-shrink: 0;
+  }
+  .footer-social {
+    font-family: 'Cormorant Garamond', serif; font-size: 6.5pt;
+    color: #1e3a5f; opacity: 0.4; letter-spacing: 0.5px;
+  }
+  .footer-org {
+    font-size: 6pt; font-weight: 500; color: #1e3a5f; opacity: 0.3;
+    letter-spacing: 2px; text-transform: uppercase;
+  }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="header">
+    <div class="header-left">
+      <img class="header-logo" src="logo.jpg" alt="ASBB Logo">
+      <div class="header-text">
+        <div class="header-title">ASBB TOURNOI RAMADAN 2026</div>
+        <div class="header-subtitle">FICHE DE STATISTIQUES</div>
+      </div>
+    </div>
+    <div class="header-icon">&#127936;</div>
+  </div>
+
+  <div class="match-info">
+    <div class="match-field"><span class="match-label">&Eacute;quipe :</span><span class="match-line"></span></div>
+    <div class="match-field"><span class="match-label">Date :</span><span class="match-line"></span></div>
+    <div class="match-field"><span class="match-label">Adversaire :</span><span class="match-line"></span></div>
+    <div class="match-field"><span class="match-label">Lieu :</span><span class="match-line"></span></div>
+  </div>
+
+  <div class="table-wrapper">
+    <table class="stats-table">
+      <colgroup>
+        <col class="col-num"><col class="col-player">
+        <col class="col-stat"><col class="col-stat"><col class="col-stat"><col class="col-stat"><col class="col-stat">
+      </colgroup>
+      <thead><tr><th>#</th><th>JOUEUR</th><th>PTS</th><th>REB</th><th>AST</th><th>STL</th><th>3PM</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td class="player-cell"></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>2</td><td class="player-cell"></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>3</td><td class="player-cell"></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>4</td><td class="player-cell"></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>5</td><td class="player-cell"></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>6</td><td class="player-cell"></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>7</td><td class="player-cell"></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>8</td><td class="player-cell"></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>9</td><td class="player-cell"></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>10</td><td class="player-cell"></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>11</td><td class="player-cell"></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>12</td><td class="player-cell"></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>13</td><td class="player-cell"></td><td></td><td></td><td></td><td></td><td></td></tr>
+      </tbody>
+      <tfoot><tr><td></td><td class="total-label">TOTAL &Eacute;QUIPE</td><td></td><td></td><td></td><td></td><td></td></tr></tfoot>
+    </table>
+  </div>
+
+  <div class="footer">
+    <div class="footer-social">Instagram: @asbaskettball &bull; Facebook: @Acad&eacute;mie Soummam Basketball</div>
+    <div class="footer-org">ACAD&Eacute;MIE SOUMMAM BASKETBALL &mdash; AKBOU</div>
+  </div>
+</div>
+</body>
+</html>

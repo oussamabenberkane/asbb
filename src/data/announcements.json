@@ -1,10 +1,18 @@
 [
   {
+    "id": 3,
+    "date": "2026-03-12",
+    "titre": "🏀 Tournoi 3x3 — 1ère Édition à Akbou !",
+    "contenu": "Événement historique ! Pour la toute première fois, la ville d'Akbou s'apprête à vibrer au rythme du basketball 3x3.\n\nOrganisé par l'Académie Soummam Basketball, en collaboration avec le Comité des Fêtes et l'APC d'Akbou.\n\n📅 Du 13 au 15 Mars 2026\n📍 Place d'Akbou (devant le siège de l'APC)\n🕐 À partir de 20h00\n\n🏀 Programme :\n• Jour 1 — Matchs d'exhibition & début des poules (Groupe A)\n• Jour 2 — Animations public, mini-jeux 1vs1 & poules (Groupe B)\n• Jour 3 — Grande Finale, match de gala & remise des prix\n\n🌟 Exhibitions jeunes et féminines, match de gala vétérans, animations pour le public !\n\nEntrée libre – Ambiance garantie – Place au spectacle !",
+    "important": true,
+    "image": "/announcements/tournoi.jpg"
+  },
+  {
     "id": 2,
     "date": "2026-02-20",
     "titre": "🌙 Horaires spéciaux – Mois de Ramadan",
     "contenu": "👧 Filles\n📅 Vendredi : 14h30 – 15h30\n📅 Samedi : 14h30 – 15h30\n📅 Jeudi : 16h00 – 17h00\n\n🏀 Petite Catégorie\n📅 Vendredi : 15h30 – 16h30\n📅 Samedi : 15h30 – 16h30\n📅 Mardi (Cadets & Minimes) : 16h00 – 17h00\n\n💪 Juniors / Seniors\n📅 Vendredi : 16h30 – 18h00\n📅 Samedi : 16h30 – 18h00\n📅 Mardi : 17h00 – 18h00",
-    "important": true,
+    "important": false,
     "image": "/announcements/ramadan.jpeg"
   },
   {
