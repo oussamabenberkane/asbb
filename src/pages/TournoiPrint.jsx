@@ -1,10 +1,11 @@
 import { useState, useCallback, useEffect, useRef } from 'react'
 import logo from '../assets/logo.jpg'
 
-const NAVY = '#1e3a5f'
-const NAVY_LIGHT = '#2d5a87'
-const ORANGE = '#f97316'
-const TOURNAMENT = 'ASBB Tournoi Ramadan 2026'
+const NAVY = '#1a2744'
+const NAVY_LIGHT = '#2d4a6f'
+const GOLD = '#c8834b'
+const GOLD_LIGHT = '#d4a574'
+const TOURNAMENT = 'ASBB Tournoi 3x3'
 
 const CERTIFICATES = [
   {
@@ -12,7 +13,7 @@ const CERTIFICATES = [
     title: 'CHAMPIONS',
     subtitle: '1ère Place',
     description: 'Pour avoir remporté le tournoi avec excellence et détermination.',
-    accentColor: '#C9A84C',
+    accentColor: GOLD,
     label: 'Équipe',
     icon: '🏆',
     pdfFile: 'certificat-champion.pdf',
@@ -22,7 +23,7 @@ const CERTIFICATES = [
     title: 'FINALIST',
     subtitle: '2ème Place',
     description: 'Pour une performance remarquable et un parcours honorable tout au long du tournoi.',
-    accentColor: '#8B95A3',
+    accentColor: GOLD,
     label: 'Équipe',
     icon: '🥈',
     pdfFile: 'certificat-finalist.pdf',
@@ -32,7 +33,7 @@ const CERTIFICATES = [
     title: 'THIRD PLACE',
     subtitle: '3ème Place',
     description: 'Pour un parcours méritoire et un esprit sportif exemplaire.',
-    accentColor: '#B87333',
+    accentColor: GOLD,
     label: 'Équipe',
     icon: '🥉',
     pdfFile: 'certificat-third.pdf',
@@ -42,30 +43,64 @@ const CERTIFICATES = [
     title: 'MVP',
     subtitle: 'Joueur Le Plus Précieux',
     description: 'Pour une performance exceptionnelle et un impact décisif sur le tournoi.',
-    accentColor: ORANGE,
+    accentColor: GOLD,
     label: 'Joueur',
     icon: '⭐',
     pdfFile: 'certificat-mvp.pdf',
   },
   {
-    id: 'three-point',
-    title: '3-POINT CONTEST CHAMPION',
-    subtitle: 'Concours à 3 Points',
-    description: "Pour avoir démontré une adresse remarquable derrière la ligne à trois points.",
-    accentColor: ORANGE,
+    id: 'best-scorer',
+    title: 'BEST SCORER',
+    subtitle: 'Meilleur Scoreur du Tournoi',
+    description: "Pour avoir dominé le tableau des scores avec une efficacité remarquable tout au long du tournoi.",
+    accentColor: GOLD,
     label: 'Joueur',
-    icon: '🎯',
-    pdfFile: 'certificat-3pt.pdf',
+    icon: '🔥',
+    pdfFile: 'certificat-best-scorer.pdf',
   },
   {
     id: 'defensive',
     title: 'DPOT',
     subtitle: 'Meilleur Défenseur du Tournoi',
     description: "Pour une défense acharnée et un impact défensif exceptionnel tout au long du tournoi.",
-    accentColor: ORANGE,
+    accentColor: GOLD,
     label: 'Joueur',
     icon: '🛡️',
     pdfFile: 'certificat-dpot.pdf',
+  },
+  {
+    id: '6th-man',
+    title: '6TH MAN',
+    subtitle: 'Meilleur Remplaçant du Tournoi',
+    description: "Pour un impact décisif sorti du banc et une contribution essentielle à chaque entrée en jeu.",
+    accentColor: GOLD,
+    label: 'Joueur',
+    icon: '💪',
+    pdfFile: 'certificat-6th-man.pdf',
+  },
+]
+
+const REMERCIEMENTS = [
+  {
+    id: 'remerciement-mdj',
+    recipient: 'La Maison de Jeunes d\'Akbou',
+    description: "Pour nous avoir ouvert vos portes dès le premier jour, quand personne d'autre ne l'a fait. Merci à Chikh Rachid, Madame Barra, Chikh Boualem et à toute l'équipe pour votre confiance et votre soutien indéfectible depuis la création du club.",
+    icon: '🏛️',
+    pdfFile: 'remerciement-mdj.pdf',
+  },
+  {
+    id: 'remerciement-maire',
+    recipient: 'Monsieur le Maire d\'Akbou',
+    description: "Pour votre soutien institutionnel et votre engagement envers la promotion du sport au sein de notre ville. Votre appui a été déterminant pour la réussite de cet événement.",
+    icon: '🏅',
+    pdfFile: 'remerciement-maire.pdf',
+  },
+  {
+    id: 'remerciement-comite',
+    recipient: 'Le Comité de Fêtes d\'Akbou',
+    description: "Pour votre collaboration précieuse et votre contribution à l'organisation de cet événement sportif. Votre implication a permis d'offrir un tournoi mémorable à tous les participants.",
+    icon: '🤝',
+    pdfFile: 'remerciement-comite.pdf',
   },
 ]
 
@@ -168,8 +203,55 @@ function SocialFooter({ color = NAVY, size = '7pt' }) {
   )
 }
 
+/* ─── Diamond ornament divider ─── */
+function DiamondDivider({ color = GOLD, width = '60%' }) {
+  return (
+    <div style={{ display: 'flex', alignItems: 'center', gap: '12px', width, margin: '0 auto' }}>
+      <div style={{ flex: 1, height: '1px', background: `linear-gradient(90deg, transparent, ${color})` }} />
+      <div style={{ width: 5, height: 5, background: color, transform: 'rotate(45deg)', flexShrink: 0 }} />
+      <div style={{ width: 8, height: 8, border: `1.5px solid ${color}`, transform: 'rotate(45deg)', flexShrink: 0 }} />
+      <div style={{ width: 5, height: 5, background: color, transform: 'rotate(45deg)', flexShrink: 0 }} />
+      <div style={{ flex: 1, height: '1px', background: `linear-gradient(270deg, transparent, ${color})` }} />
+    </div>
+  )
+}
+
+/* ─── Decorative corner brackets ─── */
+function CornerBrackets({ color = GOLD, inset = '6mm', size = '18mm', thickness = '2.5px' }) {
+  return [
+    { top: inset, left: inset, borderTop: `${thickness} solid ${color}`, borderLeft: `${thickness} solid ${color}` },
+    { top: inset, right: inset, borderTop: `${thickness} solid ${color}`, borderRight: `${thickness} solid ${color}` },
+    { bottom: inset, left: inset, borderBottom: `${thickness} solid ${color}`, borderLeft: `${thickness} solid ${color}` },
+    { bottom: inset, right: inset, borderBottom: `${thickness} solid ${color}`, borderRight: `${thickness} solid ${color}` },
+  ].map((s, i) => (
+    <div key={i} style={{ position: 'absolute', width: size, height: '12mm', pointerEvents: 'none', ...s }} />
+  ))
+}
+
+/* ─── Seal / medallion SVG ─── */
+function SealMedallion({ color = GOLD, size = 72 }) {
+  const points = 24
+  const outerR = size / 2
+  const innerR = outerR * 0.78
+  const pathD = Array.from({ length: points * 2 }, (_, i) => {
+    const angle = (i * Math.PI) / points - Math.PI / 2
+    const r = i % 2 === 0 ? outerR : innerR
+    const x = outerR + r * Math.cos(angle)
+    const y = outerR + r * Math.sin(angle)
+    return `${i === 0 ? 'M' : 'L'}${x.toFixed(2)},${y.toFixed(2)}`
+  }).join(' ') + 'Z'
+
+  return (
+    <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`} style={{ overflow: 'visible' }}>
+      <path d={pathD} fill="none" stroke={color} strokeWidth="1.5" opacity="0.5" />
+      <circle cx={outerR} cy={outerR} r={innerR * 0.85} fill="none" stroke={color} strokeWidth="1" opacity="0.4" />
+      <circle cx={outerR} cy={outerR} r={innerR * 0.65} fill="none" stroke={color} strokeWidth="0.5" opacity="0.3" />
+    </svg>
+  )
+}
+
 /* ═══════════════════════════════════════
-   STAT SHEET
+   STAT SHEET — Light redesign
    ═══════════════════════════════════════ */
 function StatSheet() {
   return (
@@ -182,21 +264,16 @@ function StatSheet() {
       position: 'relative',
       overflow: 'hidden',
     }}>
+      {/* Header bar */}
       <div style={{
-        position: 'absolute', inset: 0, opacity: 0.02,
-        backgroundImage: `repeating-linear-gradient(45deg, ${NAVY} 0px, ${NAVY} 1px, transparent 1px, transparent 8px)`,
-        pointerEvents: 'none',
-      }} />
-
-      <div style={{
-        background: `linear-gradient(135deg, ${NAVY} 0%, ${NAVY_LIGHT} 100%)`,
+        background: NAVY,
         color: 'white', padding: '10px 16px 8px',
         display: 'flex', alignItems: 'center', gap: '14px',
-        borderRadius: '4px 4px 0 0', position: 'relative',
+        position: 'relative',
       }}>
         <div style={{
           position: 'absolute', bottom: 0, left: 0, right: 0, height: '3px',
-          background: `linear-gradient(90deg, ${ORANGE}, ${ORANGE}CC, ${ORANGE})`,
+          background: `linear-gradient(90deg, ${GOLD}, ${GOLD_LIGHT}, ${GOLD})`,
         }} />
         <img src={logo} alt="ASBB Logo" style={{ width: '48px', height: '48px', borderRadius: '50%', border: '2px solid rgba(255,255,255,0.3)' }} />
         <div style={{ flex: 1 }}>
@@ -209,25 +286,27 @@ function StatSheet() {
         </div>
         <div style={{
           width: 40, height: 40, borderRadius: '50%',
-          border: '2px solid rgba(255,255,255,0.2)',
+          border: `2px solid ${GOLD}66`,
           display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '20px',
         }}>🏀</div>
       </div>
 
+      {/* Info fields */}
       <div style={{
         display: 'grid', gridTemplateColumns: '1fr 1fr',
         gap: '6px 24px', padding: '8px 16px',
         fontSize: '9pt', fontWeight: 500, color: NAVY,
-        borderBottom: `1.5px solid ${NAVY}22`,
+        borderBottom: `1.5px solid ${NAVY}18`,
       }}>
         {['Équipe', 'Date', 'Adversaire', 'Lieu'].map(label => (
           <div key={label} style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
             <span style={{ fontWeight: 600, textTransform: 'uppercase', letterSpacing: '1px', fontSize: '8pt' }}>{label} :</span>
-            <div style={{ flex: 1, borderBottom: `1.5px solid ${NAVY}44`, minHeight: '16px' }} />
+            <div style={{ flex: 1, borderBottom: `1.5px solid ${NAVY}33`, minHeight: '16px' }} />
           </div>
         ))}
       </div>
 
+      {/* Table */}
       <div style={{ flex: 1, padding: '4px 0 0', display: 'flex', flexDirection: 'column' }}>
         <table style={{ width: '100%', borderCollapse: 'collapse', tableLayout: 'fixed', flex: 1 }}>
           <colgroup>
@@ -248,11 +327,11 @@ function StatSheet() {
           </thead>
           <tbody>
             {Array.from({ length: PLAYER_ROWS }, (_, i) => (
-              <tr key={i} style={{ background: i % 2 === 0 ? 'white' : '#F4F7FA' }}>
+              <tr key={i} style={{ background: i % 2 === 0 ? 'white' : '#f7f8fa' }}>
                 {STAT_COLUMNS.map(col => (
                   <td key={col.key} style={{
-                    borderBottom: `1px solid ${NAVY}18`,
-                    borderRight: `1px solid ${NAVY}12`,
+                    borderBottom: `1px solid ${NAVY}12`,
+                    borderRight: `1px solid ${NAVY}0a`,
                     padding: col.key === 'joueur' ? '2px 8px' : '2px 4px',
                     textAlign: col.key === 'joueur' || col.key === 'num' ? 'left' : 'center',
                     fontSize: '9pt',
@@ -267,6 +346,7 @@ function StatSheet() {
         </table>
       </div>
 
+      {/* Totals row */}
       <div style={{
         display: 'flex', borderTop: `2px solid ${NAVY}`,
         fontSize: '8pt', fontWeight: 600, color: NAVY, letterSpacing: '1px',
@@ -276,15 +356,16 @@ function StatSheet() {
         {STAT_COLUMNS.slice(2).map(col => (
           <div key={col.key} style={{
             width: col.width, padding: '4px', textAlign: 'center',
-            borderLeft: `1px solid ${NAVY}18`, minHeight: '18px',
+            borderLeft: `1px solid ${NAVY}12`, minHeight: '18px',
           }} />
         ))}
       </div>
 
+      {/* Footer */}
       <div style={{
         padding: '6px 16px',
         display: 'flex', justifyContent: 'space-between', alignItems: 'center',
-        borderTop: `1px solid ${NAVY}15`,
+        borderTop: `1px solid ${NAVY}10`,
       }}>
         <SocialFooter size="6.5pt" />
         <div style={{
@@ -297,161 +378,302 @@ function StatSheet() {
 }
 
 /* ═══════════════════════════════════════
-   CERTIFICATE — Bold sports poster style
+   CERTIFICATE — Prestigious light design
    ═══════════════════════════════════════ */
 function Certificate({ title, subtitle, description, accentColor, label }) {
   return (
     <div style={{
       width: '100%', height: '100%', position: 'relative', overflow: 'hidden',
-      background: `linear-gradient(160deg, #050d1a 0%, #0c1f3d 30%, ${NAVY} 60%, ${NAVY_LIGHT} 100%)`,
       fontFamily: "'Oswald', sans-serif",
     }}>
+      {/* Outer border — navy */}
       <div style={{
-        position: 'absolute', top: '5%', left: '50%', transform: 'translateX(-50%)',
-        width: '700px', height: '700px', borderRadius: '50%',
-        background: `radial-gradient(circle, ${accentColor}25 0%, ${accentColor}08 40%, transparent 70%)`,
+        position: 'absolute', inset: '4mm',
+        border: `2px solid ${NAVY}20`,
         pointerEvents: 'none',
       }} />
-      <div style={{
-        position: 'absolute', top: '10%', left: '50%', transform: 'translateX(-50%)',
-        width: '100%', height: '80%',
-        background: `conic-gradient(from 0deg at 50% 20%, transparent 0deg, ${accentColor}06 10deg, transparent 20deg, transparent 40deg, ${accentColor}04 50deg, transparent 60deg, transparent 80deg, ${accentColor}06 90deg, transparent 100deg, transparent 160deg, ${accentColor}04 170deg, transparent 180deg, transparent 200deg, ${accentColor}06 210deg, transparent 220deg, transparent 280deg, ${accentColor}04 290deg, transparent 300deg, transparent 340deg, ${accentColor}06 350deg, transparent 360deg)`,
-        pointerEvents: 'none',
-      }} />
-      <div style={{
-        position: 'absolute', top: 0, right: '-5%', width: '35%', height: '100%',
-        background: `linear-gradient(135deg, transparent 0%, ${accentColor}08 20%, ${accentColor}12 21%, transparent 22%, transparent 40%, ${accentColor}06 60%, ${accentColor}10 61%, transparent 62%)`,
-        transform: 'skewX(-12deg)', pointerEvents: 'none',
-      }} />
-      <div style={{
-        position: 'absolute', top: 0, left: '-5%', width: '35%', height: '100%',
-        background: `linear-gradient(225deg, transparent 0%, ${accentColor}06 30%, ${accentColor}10 31%, transparent 32%)`,
-        transform: 'skewX(12deg)', pointerEvents: 'none',
-      }} />
-      <div style={{
-        position: 'absolute', inset: 0, opacity: 0.06,
-        backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")`,
-        backgroundSize: '150px 150px', pointerEvents: 'none',
-      }} />
-      <div style={{
-        position: 'absolute', inset: '4mm', border: `2px solid ${accentColor}44`,
-        boxShadow: `inset 0 0 30px ${accentColor}08, 0 0 30px ${accentColor}08`,
-        pointerEvents: 'none',
-      }} />
-      <div style={{ position: 'absolute', inset: '6mm', border: '0.5px solid rgba(255,255,255,0.06)', pointerEvents: 'none' }} />
-      {[
-        { top: '4mm', left: '4mm', borderTop: `4px solid ${accentColor}`, borderLeft: `4px solid ${accentColor}` },
-        { top: '4mm', right: '4mm', borderTop: `4px solid ${accentColor}`, borderRight: `4px solid ${accentColor}` },
-        { bottom: '4mm', left: '4mm', borderBottom: `4px solid ${accentColor}`, borderLeft: `4px solid ${accentColor}` },
-        { bottom: '4mm', right: '4mm', borderBottom: `4px solid ${accentColor}`, borderRight: `4px solid ${accentColor}` },
-      ].map((s, i) => (
-        <div key={i} style={{ position: 'absolute', width: '22mm', height: '14mm', pointerEvents: 'none', ...s }} />
-      ))}
 
+      {/* Inner border — accent color */}
+      <div style={{
+        position: 'absolute', inset: '6mm',
+        border: `1px solid ${accentColor}35`,
+        pointerEvents: 'none',
+      }} />
+
+      {/* Corner ornaments */}
+      <CornerBrackets color={accentColor} />
+
+      {/* Seal watermark — bottom right */}
+      <div style={{
+        position: 'absolute', bottom: '12mm', right: '14mm',
+        opacity: 0.12, pointerEvents: 'none',
+      }}>
+        <SealMedallion color={accentColor} size={90} />
+      </div>
+
+      {/* Seal watermark — top left (mirrored) */}
+      <div style={{
+        position: 'absolute', top: '12mm', left: '14mm',
+        opacity: 0.08, pointerEvents: 'none',
+      }}>
+        <SealMedallion color={NAVY} size={60} />
+      </div>
+
+      {/* Content */}
       <div style={{
         position: 'relative', zIndex: 1,
         display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
-        textAlign: 'center', width: '100%', height: '100%', padding: '8mm 14mm',
+        textAlign: 'center', width: '100%', height: '100%', padding: '12mm 20mm',
       }}>
+        {/* Academy name */}
         <div style={{
-          fontSize: '7.5pt', fontWeight: 500, letterSpacing: '6px',
-          color: 'rgba(255,255,255,0.5)', textTransform: 'uppercase', marginBottom: '4px',
+          fontSize: '7pt', fontWeight: 400, letterSpacing: '5px',
+          color: `${NAVY}77`, textTransform: 'uppercase', marginBottom: '10px',
         }}>Académie Soummam Basketball — Akbou</div>
 
-        <div style={{ position: 'relative', marginBottom: '6px' }}>
-          <div style={{
-            position: 'absolute', inset: '-20px', borderRadius: '50%',
-            background: `radial-gradient(circle, ${accentColor}30 0%, transparent 70%)`,
-            pointerEvents: 'none',
-          }} />
+        {/* Logo */}
+        <div style={{ position: 'relative', marginBottom: '10px' }}>
           <img src={logo} alt="ASBB Logo" style={{
-            width: '85px', height: '85px', borderRadius: '50%',
-            border: `3px solid ${accentColor}88`,
-            boxShadow: `0 0 40px ${accentColor}44, 0 0 80px ${accentColor}18`,
+            width: '64px', height: '64px', borderRadius: '50%',
+            border: `2px solid ${accentColor}44`,
             position: 'relative',
           }} />
         </div>
 
+        {/* Tournament name */}
         <div style={{
-          fontSize: '12pt', fontWeight: 700, letterSpacing: '6px',
-          color: 'rgba(255,255,255,0.85)', textTransform: 'uppercase', marginBottom: '4px',
-        }}>TOURNOI RAMADAN 2026</div>
-
-        <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '6px', width: '65%' }}>
-          <div style={{ flex: 1, height: '1.5px', background: `linear-gradient(90deg, transparent, ${accentColor})` }} />
-          <div style={{ width: 6, height: 6, background: accentColor, transform: 'rotate(45deg)', boxShadow: `0 0 8px ${accentColor}66` }} />
-          <div style={{ width: 9, height: 9, border: `2px solid ${accentColor}`, transform: 'rotate(45deg)' }} />
-          <div style={{ width: 6, height: 6, background: accentColor, transform: 'rotate(45deg)', boxShadow: `0 0 8px ${accentColor}66` }} />
-          <div style={{ flex: 1, height: '1.5px', background: `linear-gradient(270deg, transparent, ${accentColor})` }} />
-        </div>
+          fontSize: '11pt', fontWeight: 600, letterSpacing: '5px',
+          color: NAVY, textTransform: 'uppercase', marginBottom: '4px',
+        }}>TOURNOI 3x3</div>
 
         <div style={{
           fontFamily: "'Cormorant Garamond', Georgia, serif",
-          fontSize: '11pt', fontWeight: 600, letterSpacing: '5px',
-          color: accentColor, textTransform: 'uppercase', marginBottom: '2px',
-          textShadow: `0 0 20px ${accentColor}44`,
+          fontSize: '8pt', fontWeight: 400, letterSpacing: '3px',
+          color: `${NAVY}66`, textTransform: 'uppercase', marginBottom: '10px',
+        }}>Mars 2026</div>
+
+        {/* Diamond divider */}
+        <div style={{ marginBottom: '12px', width: '100%' }}>
+          <DiamondDivider color={accentColor} width="45%" />
+        </div>
+
+        {/* Certificate label */}
+        <div style={{
+          fontFamily: "'Cormorant Garamond', Georgia, serif",
+          fontSize: '10pt', fontWeight: 500, letterSpacing: '4px',
+          color: accentColor, textTransform: 'uppercase', marginBottom: '8px',
         }}>Certificat d'Honneur</div>
 
+        {/* Award title */}
         <div style={{
-          fontSize: title.length > 12 ? '28pt' : '40pt',
-          fontWeight: 700, letterSpacing: '6px',
-          color: 'white', textTransform: 'uppercase', lineHeight: 1.05,
-          textShadow: `0 0 30px ${accentColor}55, 0 2px 20px ${accentColor}33, 0 0 60px rgba(0,0,0,0.4)`,
-          marginBottom: '2px',
-          WebkitTextStroke: title.length <= 12 ? `0.5px ${accentColor}44` : 'none',
+          fontSize: title.length > 12 ? '24pt' : '34pt',
+          fontWeight: 600, letterSpacing: '4px',
+          color: NAVY, textTransform: 'uppercase', lineHeight: 1.1,
+          marginBottom: '8px',
         }}>{title}</div>
 
+        {/* Subtitle badge */}
         <div style={{
           display: 'inline-block',
-          background: `linear-gradient(135deg, ${accentColor}, ${accentColor}DD)`,
-          color: 'white', padding: '6px 42px',
-          fontSize: '11pt', fontWeight: 700, letterSpacing: '4px', textTransform: 'uppercase',
-          marginBottom: '14px',
-          boxShadow: `0 4px 20px ${accentColor}55, 0 0 40px ${accentColor}22`,
+          background: accentColor,
+          color: 'white', padding: '4px 36px',
+          fontSize: '9.5pt', fontWeight: 600, letterSpacing: '3px', textTransform: 'uppercase',
+          marginBottom: '16px',
           clipPath: 'polygon(4% 0%, 96% 0%, 100% 50%, 96% 100%, 4% 100%, 0% 50%)',
         }}>{subtitle}</div>
 
+        {/* "Décerné à" */}
         <div style={{
           fontFamily: "'Cormorant Garamond', Georgia, serif",
-          fontSize: '13pt', fontStyle: 'italic',
-          color: 'rgba(255,255,255,0.7)', marginBottom: '4px',
+          fontSize: '11pt', fontStyle: 'italic',
+          color: `${NAVY}88`, marginBottom: '8px',
         }}>Décerné à</div>
 
+        {/* Name line */}
         <div style={{
-          width: '60%', maxWidth: '160mm', height: '32px',
-          borderBottom: `2.5px solid ${accentColor}88`,
-          marginBottom: '4px', position: 'relative',
-          boxShadow: `0 2px 10px ${accentColor}22`,
+          width: '50%', maxWidth: '140mm', height: '28px',
+          borderBottom: `1.5px solid ${accentColor}55`,
+          marginBottom: '10px', position: 'relative',
         }}>
           <span style={{
             position: 'absolute', right: 0, bottom: '6px',
             fontFamily: "'Cormorant Garamond', Georgia, serif",
-            fontSize: '7pt', color: 'rgba(255,255,255,0.4)', fontStyle: 'italic',
+            fontSize: '7pt', color: `${NAVY}44`, fontStyle: 'italic',
           }}>({label})</span>
         </div>
 
+        {/* Description */}
         <div style={{
           fontFamily: "'Cormorant Garamond', Georgia, serif",
-          fontSize: '11pt', color: 'rgba(255,255,255,0.65)',
-          maxWidth: '65%', lineHeight: 1.6, marginBottom: '12px', fontStyle: 'italic',
+          fontSize: '10pt', color: `${NAVY}77`,
+          maxWidth: '55%', lineHeight: 1.7, marginBottom: '18px', fontStyle: 'italic',
         }}>{description}</div>
 
-        <div style={{ display: 'flex', justifyContent: 'space-between', width: '70%', marginTop: '2px' }}>
+        {/* Signature lines */}
+        <div style={{ display: 'flex', justifyContent: 'space-between', width: '60%', marginTop: '0' }}>
           {['Le Président', 'Date et Cachet'].map(text => (
             <div key={text} style={{ textAlign: 'center' }}>
-              <div style={{ width: '48mm', borderBottom: '1px solid rgba(255,255,255,0.2)', height: '18px', marginBottom: '3px' }} />
+              <div style={{ width: '44mm', borderBottom: `1px solid ${NAVY}1a`, height: '18px', marginBottom: '4px' }} />
               <div style={{
                 fontFamily: "'Cormorant Garamond', Georgia, serif",
-                fontSize: '7pt', color: 'rgba(255,255,255,0.5)',
+                fontSize: '7pt', color: `${NAVY}66`,
                 letterSpacing: '1.5px', textTransform: 'uppercase',
               }}>{text}</div>
             </div>
           ))}
         </div>
 
+        {/* Social footer */}
         <div style={{
-          marginTop: '6px', display: 'flex', justifyContent: 'center', gap: '24px',
-          fontSize: '6.5pt', color: 'rgba(255,255,255,0.4)', letterSpacing: '0.5px',
+          marginTop: '12px', display: 'flex', justifyContent: 'center', gap: '24px',
+          fontSize: '6pt', color: `${NAVY}44`, letterSpacing: '0.5px',
+        }}>
+          <span>Instagram: @asbaskettball</span>
+          <span>•</span>
+          <span>Facebook: @Académie Soummam Basketball</span>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+/* ═══════════════════════════════════════
+   REMERCIEMENT — Thank-you document
+   ═══════════════════════════════════════ */
+function Remerciement({ recipient, description }) {
+  return (
+    <div style={{
+      width: '100%', height: '100%', position: 'relative', overflow: 'hidden',
+      fontFamily: "'Oswald', sans-serif",
+    }}>
+      {/* Outer border */}
+      <div style={{
+        position: 'absolute', inset: '4mm',
+        border: `2px solid ${NAVY}20`,
+        pointerEvents: 'none',
+      }} />
+      {/* Inner border */}
+      <div style={{
+        position: 'absolute', inset: '6mm',
+        border: `1px solid ${GOLD}35`,
+        pointerEvents: 'none',
+      }} />
+      <CornerBrackets color={GOLD} />
+
+      {/* Seal watermark — bottom right */}
+      <div style={{
+        position: 'absolute', bottom: '12mm', right: '14mm',
+        opacity: 0.12, pointerEvents: 'none',
+      }}>
+        <SealMedallion color={GOLD} size={90} />
+      </div>
+      {/* Seal watermark — top left */}
+      <div style={{
+        position: 'absolute', top: '12mm', left: '14mm',
+        opacity: 0.08, pointerEvents: 'none',
+      }}>
+        <SealMedallion color={NAVY} size={60} />
+      </div>
+
+      {/* Content */}
+      <div style={{
+        position: 'relative', zIndex: 1,
+        display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
+        textAlign: 'center', width: '100%', height: '100%', padding: '12mm 20mm',
+      }}>
+        {/* Academy name */}
+        <div style={{
+          fontSize: '7pt', fontWeight: 400, letterSpacing: '5px',
+          color: `${NAVY}77`, textTransform: 'uppercase', marginBottom: '10px',
+        }}>Académie Soummam Basketball — Akbou</div>
+
+        {/* Logo */}
+        <div style={{ position: 'relative', marginBottom: '10px' }}>
+          <img src={logo} alt="ASBB Logo" style={{
+            width: '64px', height: '64px', borderRadius: '50%',
+            border: `2px solid ${GOLD}44`,
+          }} />
+        </div>
+
+        {/* Tournament name */}
+        <div style={{
+          fontSize: '11pt', fontWeight: 600, letterSpacing: '5px',
+          color: NAVY, textTransform: 'uppercase', marginBottom: '4px',
+        }}>TOURNOI 3x3</div>
+
+        <div style={{
+          fontFamily: "'Cormorant Garamond', Georgia, serif",
+          fontSize: '8pt', fontWeight: 400, letterSpacing: '3px',
+          color: `${NAVY}66`, textTransform: 'uppercase', marginBottom: '10px',
+        }}>Mars 2026</div>
+
+        {/* Diamond divider */}
+        <div style={{ marginBottom: '12px', width: '100%' }}>
+          <DiamondDivider color={GOLD} width="45%" />
+        </div>
+
+        {/* Remerciement label */}
+        <div style={{
+          fontFamily: "'Cormorant Garamond', Georgia, serif",
+          fontSize: '10pt', fontWeight: 500, letterSpacing: '4px',
+          color: GOLD, textTransform: 'uppercase', marginBottom: '8px',
+        }}>Lettre de Remerciement</div>
+
+        {/* Title */}
+        <div style={{
+          fontSize: '34pt', fontWeight: 600, letterSpacing: '4px',
+          color: NAVY, textTransform: 'uppercase', lineHeight: 1.1,
+          marginBottom: '8px',
+        }}>MERCI</div>
+
+        {/* Subtitle badge */}
+        <div style={{
+          display: 'inline-block',
+          background: GOLD,
+          color: 'white', padding: '4px 36px',
+          fontSize: '9.5pt', fontWeight: 600, letterSpacing: '3px', textTransform: 'uppercase',
+          marginBottom: '16px',
+          clipPath: 'polygon(4% 0%, 96% 0%, 100% 50%, 96% 100%, 4% 100%, 0% 50%)',
+        }}>Remerciement Spécial</div>
+
+        {/* "Adressé à" */}
+        <div style={{
+          fontFamily: "'Cormorant Garamond', Georgia, serif",
+          fontSize: '11pt', fontStyle: 'italic',
+          color: `${NAVY}88`, marginBottom: '8px',
+        }}>Adressé à</div>
+
+        {/* Recipient name */}
+        <div style={{
+          fontSize: '18pt', fontWeight: 600, letterSpacing: '2px',
+          color: NAVY, marginBottom: '12px', lineHeight: 1.2,
+        }}>{recipient}</div>
+
+        {/* Description */}
+        <div style={{
+          fontFamily: "'Cormorant Garamond', Georgia, serif",
+          fontSize: '10pt', color: `${NAVY}77`,
+          maxWidth: '55%', lineHeight: 1.7, marginBottom: '18px', fontStyle: 'italic',
+        }}>{description}</div>
+
+        {/* Signature lines */}
+        <div style={{ display: 'flex', justifyContent: 'space-between', width: '60%', marginTop: '0' }}>
+          {['Le Président', 'Date et Cachet'].map(text => (
+            <div key={text} style={{ textAlign: 'center' }}>
+              <div style={{ width: '44mm', borderBottom: `1px solid ${NAVY}1a`, height: '18px', marginBottom: '4px' }} />
+              <div style={{
+                fontFamily: "'Cormorant Garamond', Georgia, serif",
+                fontSize: '7pt', color: `${NAVY}66`,
+                letterSpacing: '1.5px', textTransform: 'uppercase',
+              }}>{text}</div>
+            </div>
+          ))}
+        </div>
+
+        {/* Social footer */}
+        <div style={{
+          marginTop: '12px', display: 'flex', justifyContent: 'center', gap: '24px',
+          fontSize: '6pt', color: `${NAVY}44`, letterSpacing: '0.5px',
         }}>
           <span>Instagram: @asbaskettball</span>
           <span>•</span>
@@ -546,7 +768,7 @@ function ScaledPage({ children }) {
     const container = containerRef.current
     if (!container) return
 
-    const PAGE_WIDTH_PX = 281 * 3.7795275591 // 281mm in px
+    const PAGE_WIDTH_PX = 281 * 3.7795275591
 
     const observer = new ResizeObserver(([entry]) => {
       const availableWidth = entry.contentRect.width
@@ -599,6 +821,12 @@ export default function TournoiPrint() {
       label: `${c.icon} ${c.title}`,
       component: <Certificate {...c} />,
       pdfFile: c.pdfFile,
+    })),
+    ...REMERCIEMENTS.map(r => ({
+      id: r.id,
+      label: `${r.icon} ${r.recipient}`,
+      component: <Remerciement {...r} />,
+      pdfFile: r.pdfFile,
     })),
   ]
 
@@ -678,7 +906,7 @@ export default function TournoiPrint() {
                   icon={<IconDownload />}
                   label="PDF"
                   href={`/tournoi-pdfs/${page.pdfFile}`}
-                  color={ORANGE}
+                  color={GOLD}
                 />
               </div>
             </div>
