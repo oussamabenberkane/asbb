@@ -10,8 +10,8 @@ const TOURNAMENT = 'ASBB Tournoi 3x3'
 const CERTIFICATES = [
   {
     id: 'champion',
-    title: 'CHAMPIONS',
-    subtitle: '1ère Place',
+    title: '1ÈRE PLACE',
+    subtitle: 'Champions du Tournoi',
     description: 'Pour avoir remporté le tournoi avec excellence et détermination.',
     accentColor: GOLD,
     label: 'Équipe',
@@ -20,8 +20,8 @@ const CERTIFICATES = [
   },
   {
     id: 'finaliste',
-    title: 'FINALIST',
-    subtitle: '2ème Place',
+    title: '2ÈME PLACE',
+    subtitle: 'Finaliste du Tournoi',
     description: 'Pour une performance remarquable et un parcours honorable tout au long du tournoi.',
     accentColor: GOLD,
     label: 'Équipe',
@@ -30,8 +30,8 @@ const CERTIFICATES = [
   },
   {
     id: 'troisieme',
-    title: 'THIRD PLACE',
-    subtitle: '3ème Place',
+    title: '3ÈME PLACE',
+    subtitle: 'Troisième du Tournoi',
     description: 'Pour un parcours méritoire et un esprit sportif exemplaire.',
     accentColor: GOLD,
     label: 'Équipe',
@@ -50,7 +50,7 @@ const CERTIFICATES = [
   },
   {
     id: 'best-scorer',
-    title: 'BEST SCORER',
+    title: 'SCORING CHAMPION',
     subtitle: 'Meilleur Scoreur du Tournoi',
     description: "Pour avoir dominé le tableau des scores avec une efficacité remarquable tout au long du tournoi.",
     accentColor: GOLD,
@@ -84,20 +84,20 @@ const REMERCIEMENTS = [
   {
     id: 'remerciement-mdj',
     recipient: 'La Maison de Jeunes d\'Akbou',
-    description: "Pour nous avoir ouvert vos portes dès le premier jour, quand personne d'autre ne l'a fait. Merci à Chikh Rachid, Madame Barra, Chikh Boualem et à toute l'équipe pour votre confiance et votre soutien indéfectible depuis la création du club.",
+    description: "Pour nous avoir ouvert vos portes dès le premier jour, quand personne d'autre ne l'a fait. Merci à Madame la directrice de la maison de jeunes et tout son effectif pour votre confiance et votre soutien indéfectible depuis la création du club.",
     icon: '🏛️',
     pdfFile: 'remerciement-mdj.pdf',
   },
   {
     id: 'remerciement-maire',
-    recipient: 'Monsieur le Maire d\'Akbou',
+    recipient: 'Mr le Maire d\'Akbou, Mr Mouloud SALHI',
     description: "Pour votre soutien institutionnel et votre engagement envers la promotion du sport au sein de notre ville. Votre appui a été déterminant pour la réussite de cet événement.",
     icon: '🏅',
     pdfFile: 'remerciement-maire.pdf',
   },
   {
     id: 'remerciement-comite',
-    recipient: 'Le Comité de Fêtes d\'Akbou',
+    recipient: 'Le Comité des Fêtes d\'Akbou',
     description: "Pour votre collaboration précieuse et votre contribution à l'organisation de cet événement sportif. Votre implication a permis d'offrir un tournoi mémorable à tous les participants.",
     icon: '🤝',
     pdfFile: 'remerciement-comite.pdf',
@@ -428,14 +428,14 @@ function Certificate({ title, subtitle, description, accentColor, label }) {
         {/* Academy name */}
         <div style={{
           fontSize: '7pt', fontWeight: 400, letterSpacing: '5px',
-          color: `${NAVY}77`, textTransform: 'uppercase', marginBottom: '10px',
+          color: `${NAVY}aa`, textTransform: 'uppercase', marginBottom: '10px',
         }}>Académie Soummam Basketball — Akbou</div>
 
         {/* Logo */}
         <div style={{ position: 'relative', marginBottom: '10px' }}>
           <img src={logo} alt="ASBB Logo" style={{
             width: '64px', height: '64px', borderRadius: '50%',
-            border: `2px solid ${accentColor}44`,
+            border: `2px solid ${accentColor}77`,
             position: 'relative',
           }} />
         </div>
@@ -449,7 +449,7 @@ function Certificate({ title, subtitle, description, accentColor, label }) {
         <div style={{
           fontFamily: "'Cormorant Garamond', Georgia, serif",
           fontSize: '8pt', fontWeight: 400, letterSpacing: '3px',
-          color: `${NAVY}66`, textTransform: 'uppercase', marginBottom: '10px',
+          color: `${NAVY}99`, textTransform: 'uppercase', marginBottom: '10px',
         }}>Mars 2026</div>
 
         {/* Diamond divider */}
@@ -486,26 +486,26 @@ function Certificate({ title, subtitle, description, accentColor, label }) {
         <div style={{
           fontFamily: "'Cormorant Garamond', Georgia, serif",
           fontSize: '11pt', fontStyle: 'italic',
-          color: `${NAVY}88`, marginBottom: '8px',
+          color: `${NAVY}bb`, marginBottom: '8px',
         }}>Décerné à</div>
 
         {/* Name line */}
         <div style={{
           width: '50%', maxWidth: '140mm', height: '28px',
-          borderBottom: `1.5px solid ${accentColor}55`,
+          borderBottom: `1.5px solid ${accentColor}88`,
           marginBottom: '10px', position: 'relative',
         }}>
           <span style={{
             position: 'absolute', right: 0, bottom: '6px',
             fontFamily: "'Cormorant Garamond', Georgia, serif",
-            fontSize: '7pt', color: `${NAVY}44`, fontStyle: 'italic',
+            fontSize: '7pt', color: `${NAVY}77`, fontStyle: 'italic',
           }}>({label})</span>
         </div>
 
         {/* Description */}
         <div style={{
           fontFamily: "'Cormorant Garamond', Georgia, serif",
-          fontSize: '10pt', color: `${NAVY}77`,
+          fontSize: '10pt', color: `${NAVY}aa`,
           maxWidth: '55%', lineHeight: 1.7, marginBottom: '18px', fontStyle: 'italic',
         }}>{description}</div>
 
@@ -513,10 +513,10 @@ function Certificate({ title, subtitle, description, accentColor, label }) {
         <div style={{ display: 'flex', justifyContent: 'space-between', width: '60%', marginTop: '0' }}>
           {['Le Président', 'Date et Cachet'].map(text => (
             <div key={text} style={{ textAlign: 'center' }}>
-              <div style={{ width: '44mm', borderBottom: `1px solid ${NAVY}1a`, height: '18px', marginBottom: '4px' }} />
+              <div style={{ width: '44mm', borderBottom: `1px solid ${NAVY}33`, height: '18px', marginBottom: '4px' }} />
               <div style={{
                 fontFamily: "'Cormorant Garamond', Georgia, serif",
-                fontSize: '7pt', color: `${NAVY}66`,
+                fontSize: '7pt', color: `${NAVY}99`,
                 letterSpacing: '1.5px', textTransform: 'uppercase',
               }}>{text}</div>
             </div>
@@ -526,7 +526,7 @@ function Certificate({ title, subtitle, description, accentColor, label }) {
         {/* Social footer */}
         <div style={{
           marginTop: '12px', display: 'flex', justifyContent: 'center', gap: '24px',
-          fontSize: '6pt', color: `${NAVY}44`, letterSpacing: '0.5px',
+          fontSize: '6pt', color: `${NAVY}77`, letterSpacing: '0.5px',
         }}>
           <span>Instagram: @asbaskettball</span>
           <span>•</span>
@@ -549,13 +549,13 @@ function Remerciement({ recipient, description }) {
       {/* Outer border */}
       <div style={{
         position: 'absolute', inset: '4mm',
-        border: `2px solid ${NAVY}20`,
+        border: `2px solid ${NAVY}35`,
         pointerEvents: 'none',
       }} />
       {/* Inner border */}
       <div style={{
         position: 'absolute', inset: '6mm',
-        border: `1px solid ${GOLD}35`,
+        border: `1px solid ${GOLD}55`,
         pointerEvents: 'none',
       }} />
       <CornerBrackets color={GOLD} />
@@ -563,14 +563,14 @@ function Remerciement({ recipient, description }) {
       {/* Seal watermark — bottom right */}
       <div style={{
         position: 'absolute', bottom: '12mm', right: '14mm',
-        opacity: 0.12, pointerEvents: 'none',
+        opacity: 0.15, pointerEvents: 'none',
       }}>
         <SealMedallion color={GOLD} size={90} />
       </div>
       {/* Seal watermark — top left */}
       <div style={{
         position: 'absolute', top: '12mm', left: '14mm',
-        opacity: 0.08, pointerEvents: 'none',
+        opacity: 0.1, pointerEvents: 'none',
       }}>
         <SealMedallion color={NAVY} size={60} />
       </div>
@@ -584,14 +584,14 @@ function Remerciement({ recipient, description }) {
         {/* Academy name */}
         <div style={{
           fontSize: '7pt', fontWeight: 400, letterSpacing: '5px',
-          color: `${NAVY}77`, textTransform: 'uppercase', marginBottom: '10px',
+          color: `${NAVY}aa`, textTransform: 'uppercase', marginBottom: '10px',
         }}>Académie Soummam Basketball — Akbou</div>
 
         {/* Logo */}
         <div style={{ position: 'relative', marginBottom: '10px' }}>
           <img src={logo} alt="ASBB Logo" style={{
             width: '64px', height: '64px', borderRadius: '50%',
-            border: `2px solid ${GOLD}44`,
+            border: `2px solid ${GOLD}77`,
           }} />
         </div>
 
@@ -604,7 +604,7 @@ function Remerciement({ recipient, description }) {
         <div style={{
           fontFamily: "'Cormorant Garamond', Georgia, serif",
           fontSize: '8pt', fontWeight: 400, letterSpacing: '3px',
-          color: `${NAVY}66`, textTransform: 'uppercase', marginBottom: '10px',
+          color: `${NAVY}99`, textTransform: 'uppercase', marginBottom: '10px',
         }}>Mars 2026</div>
 
         {/* Diamond divider */}
@@ -640,7 +640,7 @@ function Remerciement({ recipient, description }) {
         <div style={{
           fontFamily: "'Cormorant Garamond', Georgia, serif",
           fontSize: '11pt', fontStyle: 'italic',
-          color: `${NAVY}88`, marginBottom: '8px',
+          color: `${NAVY}bb`, marginBottom: '8px',
         }}>Adressé à</div>
 
         {/* Recipient name */}
@@ -652,7 +652,7 @@ function Remerciement({ recipient, description }) {
         {/* Description */}
         <div style={{
           fontFamily: "'Cormorant Garamond', Georgia, serif",
-          fontSize: '10pt', color: `${NAVY}77`,
+          fontSize: '10pt', color: `${NAVY}aa`,
           maxWidth: '55%', lineHeight: 1.7, marginBottom: '18px', fontStyle: 'italic',
         }}>{description}</div>
 
@@ -660,10 +660,10 @@ function Remerciement({ recipient, description }) {
         <div style={{ display: 'flex', justifyContent: 'space-between', width: '60%', marginTop: '0' }}>
           {['Le Président', 'Date et Cachet'].map(text => (
             <div key={text} style={{ textAlign: 'center' }}>
-              <div style={{ width: '44mm', borderBottom: `1px solid ${NAVY}1a`, height: '18px', marginBottom: '4px' }} />
+              <div style={{ width: '44mm', borderBottom: `1px solid ${NAVY}33`, height: '18px', marginBottom: '4px' }} />
               <div style={{
                 fontFamily: "'Cormorant Garamond', Georgia, serif",
-                fontSize: '7pt', color: `${NAVY}66`,
+                fontSize: '7pt', color: `${NAVY}99`,
                 letterSpacing: '1.5px', textTransform: 'uppercase',
               }}>{text}</div>
             </div>
@@ -673,7 +673,7 @@ function Remerciement({ recipient, description }) {
         {/* Social footer */}
         <div style={{
           marginTop: '12px', display: 'flex', justifyContent: 'center', gap: '24px',
-          fontSize: '6pt', color: `${NAVY}44`, letterSpacing: '0.5px',
+          fontSize: '6pt', color: `${NAVY}77`, letterSpacing: '0.5px',
         }}>
           <span>Instagram: @asbaskettball</span>
           <span>•</span>

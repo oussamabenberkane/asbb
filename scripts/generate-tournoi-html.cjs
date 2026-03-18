@@ -18,32 +18,32 @@ const CERTIFICATES = [
   {
     id: 'champion',
     filename: 'certificat-champion.html',
-    title: 'CHAMPIONS',
-    subtitle: '1ère Place',
+    title: '1ÈRE PLACE',
+    subtitle: 'Champions du Tournoi',
     description: 'Pour avoir remporté le tournoi avec excellence et détermination.',
     accentColor: GOLD,
     label: 'Équipe',
-    htmlTitle: 'Certificat — Champions',
+    htmlTitle: 'Certificat — 1ère Place',
   },
   {
     id: 'finalist',
     filename: 'certificat-finalist.html',
-    title: 'FINALIST',
-    subtitle: '2ème Place',
+    title: '2ÈME PLACE',
+    subtitle: 'Finaliste du Tournoi',
     description: 'Pour une performance remarquable et un parcours honorable tout au long du tournoi.',
     accentColor: GOLD,
     label: 'Équipe',
-    htmlTitle: 'Certificat — Finalist',
+    htmlTitle: 'Certificat — 2ème Place',
   },
   {
     id: 'third',
     filename: 'certificat-third.html',
-    title: 'THIRD PLACE',
-    subtitle: '3ème Place',
+    title: '3ÈME PLACE',
+    subtitle: 'Troisième du Tournoi',
     description: 'Pour un parcours méritoire et un esprit sportif exemplaire.',
     accentColor: GOLD,
     label: 'Équipe',
-    htmlTitle: 'Certificat — Third Place',
+    htmlTitle: 'Certificat — 3ème Place',
   },
   {
     id: 'mvp',
@@ -58,12 +58,12 @@ const CERTIFICATES = [
   {
     id: 'best-scorer',
     filename: 'certificat-best-scorer.html',
-    title: 'BEST SCORER',
+    title: 'SCORING CHAMPION',
     subtitle: 'Meilleur Scoreur du Tournoi',
     description: "Pour avoir dominé le tableau des scores avec une efficacité remarquable tout au long du tournoi.",
     accentColor: GOLD,
     label: 'Joueur',
-    htmlTitle: 'Certificat — Best Scorer',
+    htmlTitle: 'Certificat — Scoring Champion',
   },
   {
     id: 'dpot',
@@ -157,35 +157,35 @@ function generateCertificateHTML(cert) {
 </head>
 <body>
   <!-- Outer border -->
-  <div style="position:absolute;inset:4mm;border:2px solid ${NAVY}20;pointer-events:none"></div>
+  <div style="position:absolute;inset:4mm;border:2px solid ${NAVY}35;pointer-events:none"></div>
   <!-- Inner border -->
-  <div style="position:absolute;inset:6mm;border:1px solid ${cert.accentColor}35;pointer-events:none"></div>
+  <div style="position:absolute;inset:6mm;border:1px solid ${cert.accentColor}55;pointer-events:none"></div>
   <!-- Corner ornaments -->
   ${cornerBracketsHTML(cert.accentColor)}
   <!-- Seal watermark bottom-right -->
-  <div style="position:absolute;bottom:12mm;right:14mm;opacity:0.12;pointer-events:none">
+  <div style="position:absolute;bottom:12mm;right:14mm;opacity:0.15;pointer-events:none">
     ${sealMedallionSVG(cert.accentColor, 90)}
   </div>
   <!-- Seal watermark top-left -->
-  <div style="position:absolute;top:12mm;left:14mm;opacity:0.08;pointer-events:none">
+  <div style="position:absolute;top:12mm;left:14mm;opacity:0.1;pointer-events:none">
     ${sealMedallionSVG(NAVY, 60)}
   </div>
   <!-- Content -->
   <div style="position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;width:100%;height:100%;padding:12mm 20mm">
     <!-- Academy name -->
-    <div style="font-size:7pt;font-weight:400;letter-spacing:5px;color:${NAVY}77;text-transform:uppercase;margin-bottom:10px">
+    <div style="font-size:7pt;font-weight:400;letter-spacing:5px;color:${NAVY}aa;text-transform:uppercase;margin-bottom:10px">
       Académie Soummam Basketball — Akbou
     </div>
     <!-- Logo -->
     <div style="position:relative;margin-bottom:10px">
-      <img src="${LOGO_URI}" alt="ASBB Logo" style="width:64px;height:64px;border-radius:50%;border:2px solid ${cert.accentColor}44">
+      <img src="${LOGO_URI}" alt="ASBB Logo" style="width:64px;height:64px;border-radius:50%;border:2px solid ${cert.accentColor}77">
     </div>
     <!-- Tournament name -->
     <div style="font-size:11pt;font-weight:600;letter-spacing:5px;color:${NAVY};text-transform:uppercase;margin-bottom:4px">
       TOURNOI 3x3
     </div>
     <!-- Date -->
-    <div style="font-family:'Cormorant Garamond',Georgia,serif;font-size:8pt;font-weight:400;letter-spacing:3px;color:${NAVY}66;text-transform:uppercase;margin-bottom:10px">
+    <div style="font-family:'Cormorant Garamond',Georgia,serif;font-size:8pt;font-weight:400;letter-spacing:3px;color:${NAVY}99;text-transform:uppercase;margin-bottom:10px">
       Mars 2026
     </div>
     <!-- Diamond divider -->
@@ -205,30 +205,30 @@ function generateCertificateHTML(cert) {
       ${cert.subtitle}
     </div>
     <!-- Décerné à -->
-    <div style="font-family:'Cormorant Garamond',Georgia,serif;font-size:11pt;font-style:italic;color:${NAVY}88;margin-bottom:8px">
+    <div style="font-family:'Cormorant Garamond',Georgia,serif;font-size:11pt;font-style:italic;color:${NAVY}bb;margin-bottom:8px">
       Décerné à
     </div>
     <!-- Name line -->
-    <div style="width:50%;max-width:140mm;height:28px;border-bottom:1.5px solid ${cert.accentColor}55;margin-bottom:10px;position:relative">
-      <span style="position:absolute;right:0;bottom:6px;font-family:'Cormorant Garamond',Georgia,serif;font-size:7pt;color:${NAVY}44;font-style:italic">(${cert.label})</span>
+    <div style="width:50%;max-width:140mm;height:28px;border-bottom:1.5px solid ${cert.accentColor}88;margin-bottom:10px;position:relative">
+      <span style="position:absolute;right:0;bottom:6px;font-family:'Cormorant Garamond',Georgia,serif;font-size:7pt;color:${NAVY}77;font-style:italic">(${cert.label})</span>
     </div>
     <!-- Description -->
-    <div style="font-family:'Cormorant Garamond',Georgia,serif;font-size:10pt;color:${NAVY}77;max-width:55%;line-height:1.7;margin-bottom:18px;font-style:italic">
+    <div style="font-family:'Cormorant Garamond',Georgia,serif;font-size:10pt;color:${NAVY}aa;max-width:55%;line-height:1.7;margin-bottom:18px;font-style:italic">
       ${cert.description}
     </div>
     <!-- Signature lines -->
     <div style="display:flex;justify-content:space-between;width:60%;margin-top:0">
       <div style="text-align:center">
-        <div style="width:44mm;border-bottom:1px solid ${NAVY}1a;height:18px;margin-bottom:4px"></div>
-        <div style="font-family:'Cormorant Garamond',Georgia,serif;font-size:7pt;color:${NAVY}66;letter-spacing:1.5px;text-transform:uppercase">Le Président</div>
+        <div style="width:44mm;border-bottom:1px solid ${NAVY}33;height:18px;margin-bottom:4px"></div>
+        <div style="font-family:'Cormorant Garamond',Georgia,serif;font-size:7pt;color:${NAVY}99;letter-spacing:1.5px;text-transform:uppercase">Le Président</div>
       </div>
       <div style="text-align:center">
-        <div style="width:44mm;border-bottom:1px solid ${NAVY}1a;height:18px;margin-bottom:4px"></div>
-        <div style="font-family:'Cormorant Garamond',Georgia,serif;font-size:7pt;color:${NAVY}66;letter-spacing:1.5px;text-transform:uppercase">Date et Cachet</div>
+        <div style="width:44mm;border-bottom:1px solid ${NAVY}33;height:18px;margin-bottom:4px"></div>
+        <div style="font-family:'Cormorant Garamond',Georgia,serif;font-size:7pt;color:${NAVY}99;letter-spacing:1.5px;text-transform:uppercase">Date et Cachet</div>
       </div>
     </div>
     <!-- Social footer -->
-    <div style="margin-top:12px;display:flex;justify-content:center;gap:24px;font-size:6pt;color:${NAVY}44;letter-spacing:0.5px">
+    <div style="margin-top:12px;display:flex;justify-content:center;gap:24px;font-size:6pt;color:${NAVY}77;letter-spacing:0.5px">
       <span>Instagram: @asbaskettball</span>
       <span>•</span>
       <span>Facebook: @Académie Soummam Basketball</span>
@@ -357,22 +357,22 @@ const REMERCIEMENTS = [
     id: 'remerciement-mdj',
     filename: 'remerciement-mdj.html',
     recipient: "La Maison de Jeunes d'Akbou",
-    description: "Pour nous avoir ouvert vos portes dès le premier jour, quand personne d'autre ne l'a fait. Merci à Chikh Rachid, Madame Barra, Chikh Boualem et à toute l'équipe pour votre confiance et votre soutien indéfectible depuis la création du club.",
+    description: "Pour nous avoir ouvert vos portes dès le premier jour, quand personne d'autre ne l'a fait. Merci à Madame la directrice de la maison de jeunes et tout son effectif pour votre confiance et votre soutien indéfectible depuis la création du club.",
     htmlTitle: 'Remerciement — Maison de Jeunes',
   },
   {
     id: 'remerciement-maire',
     filename: 'remerciement-maire.html',
-    recipient: "Monsieur le Maire d'Akbou",
+    recipient: "Mr le Maire d'Akbou, Mr Mouloud SALHI",
     description: "Pour votre soutien institutionnel et votre engagement envers la promotion du sport au sein de notre ville. Votre appui a été déterminant pour la réussite de cet événement.",
     htmlTitle: 'Remerciement — Maire',
   },
   {
     id: 'remerciement-comite',
     filename: 'remerciement-comite.html',
-    recipient: "Le Comité de Fêtes d'Akbou",
+    recipient: "Le Comité des Fêtes d'Akbou",
     description: "Pour votre collaboration précieuse et votre contribution à l'organisation de cet événement sportif. Votre implication a permis d'offrir un tournoi mémorable à tous les participants.",
-    htmlTitle: 'Remerciement — Comité de Fêtes',
+    htmlTitle: 'Remerciement — Comité des Fêtes',
   },
 ]
 
@@ -401,35 +401,35 @@ function generateRemerciementHTML(rem) {
 </head>
 <body>
   <!-- Outer border -->
-  <div style="position:absolute;inset:4mm;border:2px solid ${NAVY}20;pointer-events:none"></div>
+  <div style="position:absolute;inset:4mm;border:2px solid ${NAVY}35;pointer-events:none"></div>
   <!-- Inner border -->
-  <div style="position:absolute;inset:6mm;border:1px solid ${GOLD}35;pointer-events:none"></div>
+  <div style="position:absolute;inset:6mm;border:1px solid ${GOLD}55;pointer-events:none"></div>
   <!-- Corner ornaments -->
   ${cornerBracketsHTML(GOLD)}
   <!-- Seal watermark bottom-right -->
-  <div style="position:absolute;bottom:12mm;right:14mm;opacity:0.12;pointer-events:none">
+  <div style="position:absolute;bottom:12mm;right:14mm;opacity:0.15;pointer-events:none">
     ${sealMedallionSVG(GOLD, 90)}
   </div>
   <!-- Seal watermark top-left -->
-  <div style="position:absolute;top:12mm;left:14mm;opacity:0.08;pointer-events:none">
+  <div style="position:absolute;top:12mm;left:14mm;opacity:0.1;pointer-events:none">
     ${sealMedallionSVG(NAVY, 60)}
   </div>
   <!-- Content -->
   <div style="position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;width:100%;height:100%;padding:12mm 20mm">
     <!-- Academy name -->
-    <div style="font-size:7pt;font-weight:400;letter-spacing:5px;color:${NAVY}77;text-transform:uppercase;margin-bottom:10px">
+    <div style="font-size:7pt;font-weight:400;letter-spacing:5px;color:${NAVY}aa;text-transform:uppercase;margin-bottom:10px">
       Académie Soummam Basketball — Akbou
     </div>
     <!-- Logo -->
     <div style="position:relative;margin-bottom:10px">
-      <img src="${LOGO_URI}" alt="ASBB Logo" style="width:64px;height:64px;border-radius:50%;border:2px solid ${GOLD}44">
+      <img src="${LOGO_URI}" alt="ASBB Logo" style="width:64px;height:64px;border-radius:50%;border:2px solid ${GOLD}77">
     </div>
     <!-- Tournament name -->
     <div style="font-size:11pt;font-weight:600;letter-spacing:5px;color:${NAVY};text-transform:uppercase;margin-bottom:4px">
       TOURNOI 3x3
     </div>
     <!-- Date -->
-    <div style="font-family:'Cormorant Garamond',Georgia,serif;font-size:8pt;font-weight:400;letter-spacing:3px;color:${NAVY}66;text-transform:uppercase;margin-bottom:10px">
+    <div style="font-family:'Cormorant Garamond',Georgia,serif;font-size:8pt;font-weight:400;letter-spacing:3px;color:${NAVY}99;text-transform:uppercase;margin-bottom:10px">
       Mars 2026
     </div>
     <!-- Diamond divider -->
@@ -449,7 +449,7 @@ function generateRemerciementHTML(rem) {
       Remerciement Spécial
     </div>
     <!-- Adressé à -->
-    <div style="font-family:'Cormorant Garamond',Georgia,serif;font-size:11pt;font-style:italic;color:${NAVY}88;margin-bottom:8px">
+    <div style="font-family:'Cormorant Garamond',Georgia,serif;font-size:11pt;font-style:italic;color:${NAVY}bb;margin-bottom:8px">
       Adressé à
     </div>
     <!-- Recipient name -->
@@ -457,22 +457,22 @@ function generateRemerciementHTML(rem) {
       ${rem.recipient}
     </div>
     <!-- Description -->
-    <div style="font-family:'Cormorant Garamond',Georgia,serif;font-size:10pt;color:${NAVY}77;max-width:55%;line-height:1.7;margin-bottom:18px;font-style:italic">
+    <div style="font-family:'Cormorant Garamond',Georgia,serif;font-size:10pt;color:${NAVY}aa;max-width:55%;line-height:1.7;margin-bottom:18px;font-style:italic">
       ${rem.description}
     </div>
     <!-- Signature lines -->
     <div style="display:flex;justify-content:space-between;width:60%;margin-top:0">
       <div style="text-align:center">
-        <div style="width:44mm;border-bottom:1px solid ${NAVY}1a;height:18px;margin-bottom:4px"></div>
-        <div style="font-family:'Cormorant Garamond',Georgia,serif;font-size:7pt;color:${NAVY}66;letter-spacing:1.5px;text-transform:uppercase">Le Président</div>
+        <div style="width:44mm;border-bottom:1px solid ${NAVY}33;height:18px;margin-bottom:4px"></div>
+        <div style="font-family:'Cormorant Garamond',Georgia,serif;font-size:7pt;color:${NAVY}99;letter-spacing:1.5px;text-transform:uppercase">Le Président</div>
       </div>
       <div style="text-align:center">
-        <div style="width:44mm;border-bottom:1px solid ${NAVY}1a;height:18px;margin-bottom:4px"></div>
-        <div style="font-family:'Cormorant Garamond',Georgia,serif;font-size:7pt;color:${NAVY}66;letter-spacing:1.5px;text-transform:uppercase">Date et Cachet</div>
+        <div style="width:44mm;border-bottom:1px solid ${NAVY}33;height:18px;margin-bottom:4px"></div>
+        <div style="font-family:'Cormorant Garamond',Georgia,serif;font-size:7pt;color:${NAVY}99;letter-spacing:1.5px;text-transform:uppercase">Date et Cachet</div>
       </div>
     </div>
     <!-- Social footer -->
-    <div style="margin-top:12px;display:flex;justify-content:center;gap:24px;font-size:6pt;color:${NAVY}44;letter-spacing:0.5px">
+    <div style="margin-top:12px;display:flex;justify-content:center;gap:24px;font-size:6pt;color:${NAVY}77;letter-spacing:0.5px">
       <span>Instagram: @asbaskettball</span>
       <span>•</span>
       <span>Facebook: @Académie Soummam Basketball</span>
