@@ -177,8 +177,8 @@ function generateCertificateHTML(cert) {
       Académie Soummam Basketball — Akbou
     </div>
     <!-- Logo -->
-    <div style="position:relative;margin-bottom:10px">
-      <img src="${LOGO_URI}" alt="ASBB Logo" style="width:64px;height:64px;border-radius:50%;border:2px solid ${cert.accentColor}77">
+    <div style="position:relative;margin-bottom:12px">
+      <img src="${LOGO_URI}" alt="ASBB Logo" style="width:110px;height:110px;border-radius:50%;border:2.5px solid ${cert.accentColor}88">
     </div>
     <!-- Tournament name -->
     <div style="font-size:11pt;font-weight:600;letter-spacing:5px;color:${NAVY};text-transform:uppercase;margin-bottom:4px">
@@ -421,8 +421,8 @@ function generateRemerciementHTML(rem) {
       Académie Soummam Basketball — Akbou
     </div>
     <!-- Logo -->
-    <div style="position:relative;margin-bottom:10px">
-      <img src="${LOGO_URI}" alt="ASBB Logo" style="width:64px;height:64px;border-radius:50%;border:2px solid ${GOLD}77">
+    <div style="position:relative;margin-bottom:12px">
+      <img src="${LOGO_URI}" alt="ASBB Logo" style="width:110px;height:110px;border-radius:50%;border:2.5px solid ${GOLD}88">
     </div>
     <!-- Tournament name -->
     <div style="font-size:11pt;font-weight:600;letter-spacing:5px;color:${NAVY};text-transform:uppercase;margin-bottom:4px">

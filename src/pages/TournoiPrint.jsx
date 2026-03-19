@@ -432,10 +432,10 @@ function Certificate({ title, subtitle, description, accentColor, label }) {
         }}>Académie Soummam Basketball — Akbou</div>
 
         {/* Logo */}
-        <div style={{ position: 'relative', marginBottom: '10px' }}>
+        <div style={{ position: 'relative', marginBottom: '12px' }}>
           <img src={logo} alt="ASBB Logo" style={{
-            width: '64px', height: '64px', borderRadius: '50%',
-            border: `2px solid ${accentColor}77`,
+            width: '110px', height: '110px', borderRadius: '50%',
+            border: `2.5px solid ${accentColor}88`,
             position: 'relative',
           }} />
         </div>
@@ -588,10 +588,10 @@ function Remerciement({ recipient, description }) {
         }}>Académie Soummam Basketball — Akbou</div>
 
         {/* Logo */}
-        <div style={{ position: 'relative', marginBottom: '10px' }}>
+        <div style={{ position: 'relative', marginBottom: '12px' }}>
           <img src={logo} alt="ASBB Logo" style={{
-            width: '64px', height: '64px', borderRadius: '50%',
-            border: `2px solid ${GOLD}77`,
+            width: '110px', height: '110px', borderRadius: '50%',
+            border: `2.5px solid ${GOLD}88`,
           }} />
         </div>
 
