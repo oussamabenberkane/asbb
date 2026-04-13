@@ -200,6 +200,15 @@ body {
     padding: 10px 14px !important;
   }
 
+  .list-header-title {
+    font-size: 11pt !important;
+    letter-spacing: 1px !important;
+  }
+
+  .list-header-subtitle {
+    font-size: 7pt !important;
+  }
+
   .list-card-actions .action-btn span {
     display: none;
   }
@@ -215,5 +224,25 @@ body {
   .list-content {
     padding: 16px 12px 32px !important;
     gap: 24px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .list-header {
+    padding: 8px 10px !important;
+  }
+
+  .list-header-logo {
+    width: 28px !important;
+    height: 28px !important;
+  }
+
+  .list-header-title {
+    font-size: 9pt !important;
+  }
+
+  .list-content {
+    padding: 12px 8px 24px !important;
+    gap: 20px !important;
   }
 }

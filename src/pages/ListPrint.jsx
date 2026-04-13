@@ -595,12 +595,12 @@ export default function ListPrint() {
           flexWrap: 'wrap', gap: '12px',
         }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '12px', minWidth: 0 }}>
-            <img src={logo} alt="ASBB" style={{ width: 36, height: 36, borderRadius: '50%', flexShrink: 0 }} />
+            <img className="list-header-logo" src={logo} alt="ASBB" style={{ width: 36, height: 36, borderRadius: '50%', flexShrink: 0 }} />
             <div style={{ minWidth: 0 }}>
-              <div style={{ fontSize: '14pt', fontWeight: 600, letterSpacing: '2px' }}>
+              <div className="list-header-title" style={{ fontSize: '14pt', fontWeight: 600, letterSpacing: '2px' }}>
                 LISTE DES JOUEURS
               </div>
-              <div style={{ fontSize: '8pt', opacity: 0.7, letterSpacing: '1px' }}>
+              <div className="list-header-subtitle" style={{ fontSize: '8pt', opacity: 0.7, letterSpacing: '1px' }}>
                 ASBB — {TOTAL_PLAYERS} JOUEURS — {pages.length} PAGES
               </div>
             </div>
