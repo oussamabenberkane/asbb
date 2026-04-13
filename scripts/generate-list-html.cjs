@@ -145,7 +145,7 @@ function headerHTML(pageNum, totalPages) {
           Académie Soummam Basketball — Akbou
         </div>
         <div style="display:flex;gap:16px;margin-top:3px;font-family:'Oswald',sans-serif;font-size:7pt;color:${GOLD};letter-spacing:1px;text-transform:uppercase;font-weight:500">
-          <span>Saison 2025–2026</span>
+          <span>Saison 2026–2027</span>
           <span style="color:${NAVY}55">•</span>
           <span>Généré le ${GEN_DATE}</span>
         </div>

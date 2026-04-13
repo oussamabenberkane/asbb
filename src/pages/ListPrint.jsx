@@ -273,7 +273,7 @@ function PageContent({ items, pageNum, totalPages, isFirst }) {
               fontSize: '7pt', color: GOLD, letterSpacing: '1px',
               textTransform: 'uppercase', fontWeight: 500,
             }}>
-              <span>Saison 2025–2026</span>
+              <span>Saison 2026–2027</span>
             </div>
           </div>
         </div>
