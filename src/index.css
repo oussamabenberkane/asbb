@@ -169,4 +169,51 @@ body {
   .print-page:last-child {
     page-break-after: auto;
   }
+
+  /* Portrait override for list pages */
+  body:has(.list-print-page) {
+    width: 210mm !important;
+    height: 297mm !important;
+  }
+
+  body:has(.list-print-page) .list-print-page {
+    width: 210mm !important;
+    height: 297mm !important;
+  }
+}
+
+/* ── List Viewer Responsive ── */
+.list-page-wrapper {
+  width: 210mm;
+  margin: 0 auto;
+  position: relative;
+}
+
+@media (max-width: 860px) {
+  .list-page-wrapper {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .list-header {
+    padding: 10px 14px !important;
+  }
+
+  .list-card-actions .action-btn span {
+    display: none;
+  }
+
+  .list-card-actions .action-btn {
+    padding: 6px 8px !important;
+  }
+
+  .list-card-label {
+    font-size: 8pt !important;
+  }
+
+  .list-content {
+    padding: 16px 12px 32px !important;
+    gap: 24px !important;
+  }
 }

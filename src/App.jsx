@@ -7,6 +7,7 @@ import WorkoutDetail from './pages/WorkoutDetail'
 import Infos from './pages/Infos'
 import Annonces from './pages/Annonces'
 import TournoiPrint from './pages/TournoiPrint'
+import ListPrint from './pages/ListPrint'
 
 export default function App() {
   return (
@@ -20,6 +21,7 @@ export default function App() {
         <Route path="annonces" element={<Annonces />} />
       </Route>
       <Route path="tournoi" element={<TournoiPrint />} />
+      <Route path="list" element={<ListPrint />} />
     </Routes>
   )
 }
