@@ -89,6 +89,8 @@ const CATEGORIES = [
       { nom: 'Benberkane', prenom: 'Oussama', dob: '25/05/2000', genre: 'M', tel: '0549697533' },
       { nom: 'Tizzaoui', prenom: 'Amar', dob: '02/04/2000', genre: 'M', tel: '0541353422' },
       { nom: 'Mazouzi', prenom: 'Yanis', dob: '29/01/2000', genre: 'M', tel: '0791021308' },
+      { nom: 'Chebbi', prenom: 'Louanes', dob: '12/02/1999', genre: 'M', tel: '0794628226' },
+      { nom: 'Aflalaye', prenom: 'Azouaou', dob: '04/02/2001', genre: 'M', tel: '0796783473' },
     ],
   },
 ]
