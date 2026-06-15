@@ -29,6 +29,12 @@ const CATEGORIES = [
       { nom: 'Teffah', prenom: 'Samy', dob: '25/11/2014', genre: 'M', tel: '0770825083' },
       { nom: 'Benberkane', prenom: 'Ayoub', dob: '30/10/2016', genre: 'M', tel: '0773250912' },
       { nom: 'Bellal', prenom: 'Amine', dob: '12/03/2018', genre: 'M', tel: '0556400834' },
+      { nom: 'Lahanch', prenom: 'Aris', dob: '07/03/2014', genre: 'M', tel: '0550468743' },
+      { nom: 'Bibi', prenom: 'Manis', dob: '11/04/2015', genre: 'M', tel: '0799127277' },
+      { nom: 'Benboudjema', prenom: 'Dany', dob: '25/11/2015', genre: 'M', tel: '0542664258' },
+      { nom: 'Bouferghous', prenom: 'Said', dob: '12/06/2016', genre: 'M', tel: '0795224726' },
+      { nom: 'Benaissa', prenom: 'Aylan', dob: '30/01/2016', genre: 'M', tel: '0798494424' },
+      { nom: 'Bouferghous', prenom: 'Ilias', dob: '22/05/2019', genre: 'M', tel: '0795224726' },
     ],
   },
   {
@@ -48,6 +54,9 @@ const CATEGORIES = [
       { nom: 'Ouartilane', prenom: 'Aghiles', dob: '20/02/2013', genre: 'M', tel: '0772639285' },
       { nom: 'Benkerrou', prenom: 'Ahcene', dob: '03/05/2012', genre: 'M', tel: '0799981802' },
       { nom: 'Bennouchen', prenom: 'Alicia', dob: '06/10/2012', genre: 'F', tel: '0657684308' },
+      { nom: 'Harzoun', prenom: 'Milya', dob: '28/08/2012', genre: 'F', tel: '0778174602' },
+      { nom: 'Chibane', prenom: 'Abderraouf', dob: '11/04/2013', genre: 'M', tel: '0699562276' },
+      { nom: 'Benkerou', prenom: 'Nylia', dob: '21/09/2013', genre: 'F', tel: '0659336744' },
     ],
   },
   {
